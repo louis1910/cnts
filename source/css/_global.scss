@@ -1,0 +1,76 @@
+@mixin flex-column-all-center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-col{
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-all-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin trans300ms{
+  transition: 0.3s ease-in-out;
+}
+
+@mixin trans200ms{
+  transition: 0.2s ease-in-out;
+}
+
+@mixin source-sans-18-400{
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+@mixin source-sans-16-400{
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+
+@mixin source-sans-14-400{
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+@mixin flexAllCenter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin flexCenter{
+  display: flex;
+  align-items: center;
+}
+
+@mixin flexColCenter{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@mixin trans03{
+  transition: 0.3s ease-in-out;
+}
+
+@mixin bg-align{
+  background-size: cover;
+  background-position: center;
+}
+
+@mixin wh100{
+  width: 100%;
+  height: 100%;
+}
+
+

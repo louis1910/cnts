@@ -1,0 +1,100 @@
+.nav-link {
+  font-family: "Dosis", sans-serif;
+  font-size: 18px;
+  color: white;
+}
+
+.navbar {
+  background-color: #7c57d9 !important;
+}
+
+.wrapper {
+  padding: 0 1rem;
+}
+
+#bar-1, #bar-2, #bar-3 {
+  background: rgba(255, 255, 255, 0.9);
+  margin: 2px 0;
+  transition: 0.3s ease-in-out;
+}
+
+#bar-1 {
+  width: 25px;
+  height: 4px;
+}
+
+#bar-2 {
+  width: 20px;
+  height: 4px;
+}
+
+#bar-3 {
+  width: 15px;
+  height: 4px;
+}
+
+#btn-menu {
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.change #bar-3 {
+  transform: translate(-10px, 0);
+}
+
+.change #bar-2 {
+  transform: translate(-5px, 0);
+}
+
+.menu-items-special {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-full-screen {
+  position: absolute;
+  width: 0;
+  height: calc(100vh - 70px);
+  background: white;
+  z-index: 10;
+  transition: 0.3s ease-in-out;
+  overflow-x: hidden;
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menu-full-screen .menu-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.menu-full-screen .menu-list .menu-items {
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: 700;
+  margin: 1.5rem 0;
+}
+.menu-full-screen .menu-list .menu-items > a {
+  color: #4d4d4d;
+}
+
+.active-menu {
+  width: 100% !important;
+  visibility: visible;
+  opacity: 0.9;
+  transition: all 0.3s ease-in-out;
+}
+
+/*# sourceMappingURL=header.css.map */

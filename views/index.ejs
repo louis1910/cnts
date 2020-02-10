@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!--     <link href="https://fonts.googleapis.com/css?family=Dosis:300,400,700&display=swap&subset=vietnamese" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Darker+Grotesque:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <title>Version 2</title>
+</head>
+<body>
+<!--header-->
+    <header class="w-100 deactiveHeader" id="header">
+        <nav class="navbar navbar-expand-xl navbar-expand-lg navbar-expand-md navbar-expand-sm">
+            <div class="container-fluid">
+                <a href="#" class="navbar-branch">
+                    <img src="./img/logo.png" alt="" height="50px">
+                </a>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <% if(typeof(displayName) != 'undefined') {%>
+                            <li class="nav-item">
+                                <div class="userHover">
+                                    Welcome, <%= displayName %>
+                                    <ul class="profiles">
+                                        <li>
+                                            <a href="#" class="profileLink">Thông tin</a>
+                                        </li>
+                                        <li>
+                                            <form method="get" action="/user/logout">
+                                                 <input type="submit" class="profileLink" value="Đăng xuất">
+                                            </form>                                  
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        <% } else { %>
+                            <li class="nav-item">
+                                <a href="./user/login" class="nav-link">Đăng nhập</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./user/register" class="nav-link">Đăng kí</a>
+                            </li>
+                        <% } %>
+                             <li class="nav-item menu-items-special">
+                                <button class="btn-menu" id="btn-menu" onclick="menufx(this)">
+                                    <div id="bar-1"></div>
+                                    <div id="bar-2"></div>
+                                    <div id="bar-3"></div>
+                                </button>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="menu-full-screen" id="menu-full-screen">
+            <div>
+                <ul class="menu-list">
+                    <li class="menu-items">
+                        <a href="/" class="">Trang chủ</a>
+                    </li>
+                    <li class="menu-items">
+                        <a href="/" class="">Thông tin</a>
+                    </li>
+                    <li class="menu-items">
+                        <a href="/" class="">Blog</a>
+                    </li>
+                    <li class="menu-items">
+                        <a href="/" class="">Liên hệ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+<!--section-->
+    <section class="welcome-block">
+        <div class="banner-place" id="banner-slider">
+            <div class="slide-item">
+                <div class="overlay">
+                    <img src="./img/banner/1057792.jpg" alt="" class="img-slider">
+                </div>
+            </div>
+            <div class="slide-item">
+                <div class="overlay">
+                    <img src="./img/banner/1057792.jpg" alt="" class="img-slider">
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+<!--slogan-->
+    <div class="slogan">
+        <h1 class="mega-slogan">-Welcome to CNTS-</h1>
+    </div>
+<!--categories-->
+
+    <section class="container-fluid ">
+        <div class="categories wrapper">
+            <h1 class="mega-title">Tài liệu mới</h1>
+            <div class="math">
+                <h3 class="brand">Toán</h3>
+                <div class="show-docs">
+                    <!--                    show item-->
+                    <a href="#" class="docs-item">
+                        <div class="docs-img">
+                            <img src="./img/banner/demo-1.jpg" alt="">
+                        </div>
+                        <div class="docs-details">
+                            <h1 class="docs-title">No Data Found</h1>
+                            <p class="content">Môn: Toán</p>
+                            <p class="content">Ngày đăng: No Data Found</p>
+                            <p class="content">Chi tiết: No Data Found</p>
+                        </div>
+                    </a>
+
+                </div>
+                <div class="endShow">
+                    <div>
+                        <a href="#" class="readmore">Read more... </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!--footer-->
+
+<section>
+    <div class="footer">
+        <div class="information wrapper">
+            <div>
+                <h1>Cộng đồng:</h1>
+            </div>
+            <div class="social-media">
+                <a href="#">
+                    <div class="social-img">
+                        <img src="./resource/img/social/facebook.svg" alt="">
+                    </div>
+                </a>
+
+
+                <a href="#">
+                    <div class="social-img">
+                        <img src="./resource/img/social/twitter.svg" alt="">
+                    </div>
+                </a>
+
+                <a href="#">
+                    <div class="social-img">
+                        <img src="./resource/img/social/whatsapp.svg" alt="">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
