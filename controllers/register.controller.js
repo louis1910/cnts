@@ -4,13 +4,13 @@ const admin = config.admin();
 const shortid = require('shortid');
 const md5 = require('md5');
 
-module.exports.register = (req, res)=>{
+exports.userRegister = (req, res)=>{
 	res.render('../views/register/register',{
 		err: "",
 		values: ""
 	});
 }
-module.exports.postRegister = (req, res)=>{
+exports.postUserRegister = (req, res)=>{
 
 	const receiveForm = req.body;
 	const randomStr = shortid.generate();
@@ -43,8 +43,4 @@ module.exports.postRegister = (req, res)=>{
 		res.redirect('/error');
 		return;
 	});
-
-	
-
-
 }
