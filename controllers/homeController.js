@@ -6,7 +6,7 @@ const config = require('./config.js');
 const admin = config.admin();
 const firebase = config.firebase();
 
-module.exports.index = (req, res)=>{
+exports.home = (req, res)=>{
 	const idToken = req.signedCookies.idToken;
 	if(typeof(idToken) != 'undefined' && idToken != false){
 		admin.auth().verifyIdToken(idToken)

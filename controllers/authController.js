@@ -6,7 +6,7 @@ const md5 = require('md5');
 const shortid = require('shortid');
 
 exports.userRegister = (req, res)=>{
-	res.render('../views/register/register',{
+	res.render('./authentication/register',{
 		err: "",
 		values: ""
 	});
@@ -16,18 +16,26 @@ exports.postUserRegister = (req, res)=>{
 	const receiveForm = req.body;
 	const randomStr = shortid.generate();
 
-	const name = receiveForm.name;
-	const password = receiveForm.password;
-	const retype = receiveForm.retype;
-	const usermail = receiveForm.usermail;
+	// const name = receiveForm.name;
+	// const password = receiveForm.password;
+	// const retype = receiveForm.retype;
+	// const usermail = receiveForm.usermail;
+
+	const {
+		name,
+		password,
+		retype,
+		usermail
+	} = req.body;
 
 	if(password !== retype || !name || !password || !usermail){
-		res.render('../views/register/register',{
+		res.render('./authentication/register',{
 			err: ["Please fill out correctly!"],
 			values: req.body
 		});
 		return;
 	}
+
 	admin.auth().createUser({
 		email: usermail,
 		emailVerified: false,
@@ -40,18 +48,17 @@ exports.postUserRegister = (req, res)=>{
 		res.redirect('/user/login');
 	})
 	.catch((err)=>{
-		console.log(err.message);
 		res.redirect('/error');
 		return;
 	});
 }
 
-exports.userLogin = (req, res)=>{
-	res.render('./login/login');
+exports.userLogin = (req, res, next)=>{
+	res.render('./authentication/login');
 }
 
 exports.postUserLogin = async(req, res)=>{
-	const random = req.cookies.MK3S2;
+	// const random = req.cookies.MK3S2;
 	// let uid = '';
 
 	const receiveForm = req.body;
@@ -76,13 +83,13 @@ exports.postUserLogin = async(req, res)=>{
 
 				})
 				.catch(function(error) {
-				  console.log(error);
+				  res.redirect('/error');
 			});
 		})
 		.catch((err)=>{
 			const errors = err.message;
 			console.log(errors);
-			res.render('./login/login',{
+			res.render('./authentication/login',{
 				errors
 			});
 		});

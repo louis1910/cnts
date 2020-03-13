@@ -8,10 +8,12 @@ let random = shortid.generate();
 const port = 9090;
 
 
-const index = require('./controllers/index.controller');
+const homeController = require('./controllers/homeController');
 const middlewareAuth = require('./middleware/authencation.middleware');
 
-const userRoute = require('./routes/user.route');
+const userRoute = require('./routes/userRoute');
+const adminRoute = require('./routes/adminRoute');
+
 
 
 app.set('view engine', 'ejs');
@@ -24,12 +26,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser(random));
 
 app.use('/user', userRoute);
-
+app.use('/admin', adminRoute);
 //-------------index
-app.get('/', index.index);
+app.get('/', homeController.home);
 
 app.get('/error',(req, res)=>{
-	res.render('404');
+	res.render('404/404');
 })
 
 

@@ -1,0 +1,262 @@
+* {
+  margin: 0;
+  padding: 0;
+  border-box: box-sizing;
+}
+
+body {
+  font-family: "Source Sans Pro", "SansSerif";
+  background-color: #f9f9f9;
+}
+
+a {
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 400;
+}
+
+.banner {
+  padding: 10px 0;
+  background: #1282A2;
+  color: whitesmoke;
+  width: 100%;
+}
+
+.menu-block {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.banner-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0 1rem;
+}
+
+.banner-right {
+  width: 82%;
+}
+
+.banner-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.banner-admin {
+  font-size: 15px;
+}
+
+.side-img {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-admin {
+  width: 30px;
+  height: 30px;
+}
+
+.side-left-title {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #bebebe;
+  padding: 0.5rem 0;
+}
+
+.side-list {
+  border-bottom: 1px solid #bebebe;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  transition: 0.2s ease-in-out;
+}
+
+.active-item {
+  background-color: #71B7D6;
+}
+
+.side-list:hover {
+  background-color: rgba(0, 0, 0, 0.07);
+  transition: 0.2s ease-in-out;
+}
+
+.home-img img {
+  width: 20px;
+  height: 20px;
+  padding-right: 0.5rem;
+}
+
+.side-left {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 9999999;
+  flex-grow: 2;
+  /*box-shadow: 1px 1px 3px #999;*/
+  background-color: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  max-width: 4%;
+  /*overflow: hidden;*/
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: -1rem;
+  left: 1rem;
+}
+
+.home:hover .tooltiptext {
+  visibility: visible;
+}
+
+.half-wrap {
+  display: flex;
+  /*justify-content: flex-start;*/
+  /*align-items: flex-start;*/
+  /*background: #ededed;*/
+  width: 100%;
+  height: calc(100vh - 65px);
+}
+
+.add-title {
+  font-size: 30px;
+  display: flex;
+  background-color: #fff;
+}
+.add-title p {
+  margin: 10px 30px;
+}
+
+.wrap-form {
+  margin-left: 10px;
+  background: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  height: 100%;
+}
+
+.side-right {
+  width: 96%;
+  height: 100%;
+}
+
+.form-content {
+  display: flex;
+  margin: 3rem;
+}
+
+.form-title {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  font-size: 20px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.form-sum {
+  font-size: 18px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+}
+
+.home {
+  text-decoration: none;
+}
+
+.wrapper-welcome {
+  width: 100%;
+  height: calc(100% - (25px + 2rem));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url("../img/bg-footer.png") no-repeat center;
+  background-size: cover;
+}
+
+.form-inline {
+  border: 1.5px solid #ccc;
+  border-radius: 5px;
+  width: 40%;
+  height: 40vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 4px 4px 1px rgba(0, 0, 0, 0.15);
+  background: #f9f9f9;
+  font-size: 16px;
+}
+
+.form-input {
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.15);
+  width: 350px;
+  height: 25px;
+  margin-left: 10px;
+}
+
+.form-element {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+.form-button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.submit-button {
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.15);
+}
+.submit-button:hover {
+  background: rgba(0, 0, 0, 0.35);
+  transition: all 0.2s ease-in-out;
+  color: #fff;
+}
+
+/*.overlay{*/
+/*    background: rgba(0, 0, 0, 0.1);*/
+/*}*/
+.form-des {
+  padding-bottom: 100px;
+}
+
+.img-welcome {
+  width: 440px;
+  height: 440px;
+}
+
+.wrapper-welcome > p {
+  margin-top: 0.5rem;
+  font-size: 18px;
+}
+
+/*# sourceMappingURL=layouts.css.map */
