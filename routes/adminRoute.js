@@ -2,10 +2,12 @@ const router = require('express').Router();
 
 const {
 	admin,
-	addDocs
+	addCourse,
+	postCourse
 } = require('../controllers/adminController');
 
 router.route('/').get(admin);
-router.route('/add-document').get(addDocs);
+router.route('/add-new-course').get(addCourse);
+router.route('/add-new-course').post(postCourse);
 
 module.exports = router;

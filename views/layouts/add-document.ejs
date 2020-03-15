@@ -7,6 +7,9 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,700,700i&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- <% if(message){ %> -->
+        <script type="text/javascript"> alert( "message" ) </script>
+    <!-- <% } %> -->
     <div class="wrap">
         <div class="banner">
             <div class="menu-block">
@@ -23,62 +26,62 @@
             <div class="side-left">
                 <div class="side-left-title home">
                     <div class="side-img">
-                        <img src="img/icons/user.png" alt="admin" class="img-admin">
+                        <img src="../img/icons/user.png" alt="admin" class="img-admin">
                     </div>
                     <div class="tooltip">
                         <span class="tooltiptext">Hello, Administrator!</span>
                     </div>
                 </div>
                 <a href="welcome.html" class="side-list home">
-                    <div class="home-img"><img src="img/icons/home.svg" alt=""></div>
+                    <div class="home-img"><img src="../img/icons/home.svg" alt=""></div>
                     <div class="tooltip">
                         <span class="tooltiptext">Trang Chủ</span>
                     </div>
                 </a>
                 <a href="manage-user.html" class="side-list home">
-                    <div class="home-img"><img src="img/icons/member-card.svg" alt=""></div>
+                    <div class="home-img"><img src="../img/icons/member-card.svg" alt=""></div>
                     <div class="tooltip">
                         <span class="tooltiptext">Quản lý thành viên</span>
                     </div>
                 </a>
                 <a href="manage-document.html" class="side-list home">
-                    <div class="home-img"><img src="img/icons/file-management.svg" alt=""></div>
+                    <div class="home-img"><img src="../img/icons/file-management.svg" alt=""></div>
                     <div class="tooltip">
                         <span class="tooltiptext">Quản lí kho tài liệu</span>
                     </div>
                 </a>
                 <a href="add-document.html" class="side-list home active-item">
-                    <div class="home-img"><img src="img/icons/add-file.svg" alt=""></div>
+                    <div class="home-img"><img src="../img/icons/add-file.svg" alt=""></div>
                     <div class="tooltip">
                         <span class="tooltiptext">Thêm tài liệu mới</span>
                     </div>
                 </a>
                 <a href="add-text.html" class="side-list home">
-                    <div class="home-img"><img src="img/icons/add.svg" alt=""></div>
+                    <div class="home-img"><img src="../img/icons/add.svg" alt=""></div>
                     <div class="tooltip">
                         <span class="tooltiptext">Thêm văn bản mới</span>
                     </div>
                 </a>
                 <a href="message.html" class="side-list home">
-                    <div class="home-img"><img src="img/icons/email.svg" alt=""></div>
+                    <div class="home-img"><img src="../img/icons/email.svg" alt=""></div>
                     <div class="tooltip">
                         <span class="tooltiptext">Hộp thư</span>
                     </div>
                 </a>
                 <a href="banner-ad.html" class="side-list home">
-                    <div class="home-img"><img src="img/icons/ads.svg" alt=""></div>
+                    <div class="home-img"><img src="../img/icons/ads.svg" alt=""></div>
                     <div class="tooltip">
                         <span class="tooltiptext">Banner quảng cáo</span>
                     </div>
                 </a>
                 <a href="feedback.html" class="side-list home">
-                    <div class="home-img"><img src="img/icons/rating.svg" alt=""></div>
+                    <div class="home-img"><img src="../img/icons/rating.svg" alt=""></div>
                     <div class="tooltip">
                         <span class="tooltiptext">Cảm nhận khách hàng</span>
                     </div>
                 </a>
                 <a href="web-setting.html" class="side-list home">
-                    <div class="home-img"><img src="img/icons/settings.svg" alt=""></div>
+                    <div class="home-img"><img src="../img/icons/settings.svg" alt=""></div>
                     <div class="tooltip">
                         <span class="tooltiptext">Thiết lập website</span>
                     </div>
@@ -95,17 +98,39 @@
                             <div class="form-element">
                                 <div><p>Chọn môn học:</p></div>
                                 <div>
-                                    <select id="subject">
+                                    <select name="subject">
                                         <option value="none">...</option>
                                         <option value="math">Toán</option>
                                         <option value="literature">Ngữ Văn</option>
                                         <option value="chemistry">Hóa Học</option>
+                                        <option value="other">Khác</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-element">
+                                <div><p>Chọn khối học:</p></div>
+                                <div>
+                                    <select name="grade">
+                                        <option value="none">...</option>
+                                        <option value="1">Lớp 1</option>
+                                        <option value="2">Lớp 2</option>
+                                        <option value="3">Lớp 3</option>
+                                        <option value="4">Lớp 4</option>
+                                        <option value="5">Lớp 5</option>
+                                        <option value="6">Lớp 6</option>
+                                        <option value="7">Lớp 7</option>
+                                        <option value="8">Lớp 8</option>
+                                        <option value="9">Lớp 9</option>
+                                        <option value="10">Lớp 10</option>
+                                        <option value="11">Lớp 11</option>
+                                        <option value="12">Lớp 12</option>
+                                        <option value="university">Đại Học</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-element">
                                 <div><p>Upload tài liệu</p></div>
-                                <div><input type="file"></div>
+                                <div><input type="file" name="filename"></div>
                             </div>
                             <div class="form-element">
                                 <p>Mô tả:</p>
