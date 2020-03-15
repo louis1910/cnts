@@ -7,6 +7,14 @@ exports.adminLogin = (req, res)=>{
 
 }
 
+exports.admin = (req, res) =>{
+	res.render('./layouts/index');
+}
+
 exports.addDocs = (req, res)=>{
 	res.render('./layouts/add-document');
+}
+
+exports.postAddDocs = (req, res)=>{
+	
 }
