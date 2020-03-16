@@ -183,6 +183,10 @@ body {
   transform: translate(0, -50%);
 }
 
+.iconArrow {
+  height: 40px;
+}
+
 button:focus {
   outline: 0;
 }

@@ -18,7 +18,7 @@ exports.home = (req, res)=>{
 		    			res.render('index', {
 		    				displayName: displayName
 		  				})
-		    			})
+		    		})
 		    		.catch((err)=>{
 		    			console.log(err);
 		    		});
@@ -30,7 +30,9 @@ exports.home = (req, res)=>{
 		return;
 	}else {
 		res.cookie('MK3S2', random);
-		res.render('index');
+		res.render('index', {
+			displayName: ''
+		});
 	}
 }
 

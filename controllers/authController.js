@@ -48,6 +48,7 @@ exports.postUserRegister = (req, res)=>{
 		res.redirect('/user/login');
 	})
 	.catch((err)=>{
+		console.log(err);
 		res.redirect('/error');
 		return;
 	});
@@ -58,14 +59,8 @@ exports.userLogin = (req, res, next)=>{
 }
 
 exports.postUserLogin = async(req, res)=>{
-	// const random = req.cookies.MK3S2;
-	// let uid = '';
 
-	const receiveForm = req.body;
-
-	// const usermail = receiveForm.usermail;
-	// const password = receiveForm.password;
-	const { usermail, password } = receiveForm;
+	const { usermail, password } = req.body;
 
 	firebase.auth()
 		.signInWithEmailAndPassword(usermail, md5(password))
@@ -75,15 +70,13 @@ exports.postUserLogin = async(req, res)=>{
 					res.cookie('idToken', idToken,{
 						signed: true
 					});
-					res.cookie('SSID', random, {
-						signed: true
-					})
 
 					res.redirect('/');
 
 				})
-				.catch(function(error) {
-				  res.redirect('/error');
+				.catch(function(err) {
+					console.log(err);
+				 	res.redirect('/error');
 			});
 		})
 		.catch((err)=>{
