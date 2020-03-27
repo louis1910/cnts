@@ -5,11 +5,6 @@ const cookieParser = require('cookie-parser');
 let shortid = require('shortid');
 let random = shortid.generate();
 
-const multer = require('multer');
-
-const config = require('./controllers/config.js');
-const bucket = config.bucket();
-
 const port = 9090;
 
 
@@ -18,8 +13,6 @@ const middlewareAuth = require('./middleware/authencation.middleware');
 
 const userRoute = require('./routes/userRoute');
 const adminRoute = require('./routes/adminRoute');
-
-var upload = multer({ dest: 'uploads/file/' });
 
 app.set('view engine', 'ejs');
 app.set('./views', 'view');
@@ -45,57 +38,54 @@ app.get('/sample', (req, res)=>{
 	res.render('sampleUploads');
 })
 
-app.post('/sample', upload.single('filename'), (req, res)=>{
+// app.post('/sample', upload.single('filename'), (req, res)=>{
 
-	console.log(req.file);
+// 	const file = req.file;
+// 	const filename = file.filename;
 
-	const path = req.file.path;
-	console.log(req.file);
-	// const pathToUpload = path.split("\\").splice(0, 2).join('/') + "/";
+// 	const pathToUpload = file.destination + filename;
 
-	
 
-	// const option = {
-	// 	destination: `thongtintuyensinh/`
-	// }
 
-	// const filename = req.file.originalname;
-	// console.log(pathToUpload + filename);
-	// console.log(filename);
+// 	// const pathToUpload = path.split("\\").splice(0, 2).join('/') + "/";
 
-	bucket.upload(path, (err, file)=>{
-		console.log(err);
-	});
+// 	const option = {
+// 		destination: `thongtintuyensinh/${filename}`
+// 	}
 
-	// function main(bucketName, filename) {
- //  		const {Storage} = require('@google-cloud/storage');
-	// 	const storage = new Storage();
+// 	bucket.upload(pathToUpload, option, (err, file)=>{
+// 		console.log(err);
+// 	});
 
-	// 	async function uploadFile() {
-	// 	    // Uploads a local file to the bucket
-	// 	    await storage.bucket(bucketName).upload(filename, {
-	// 	      // Support for HTTP requests made with `Accept-Encoding: gzip`
-	// 	      gzip: true,
-	// 	      // By setting the option `destination`, you can change the name of the
-	// 	      // object you are uploading to a bucket.
-	// 	      metadata: {
-	// 	        // Enable long-lived HTTP caching headers
-	// 	        // Use only if the contents of the file will never change
-	// 	        // (If the contents will change, use cacheControl: 'no-cache')
-	// 	       cacheControl: 'public, max-age=31536000',
-	// 	    },
-	// 	});
+// 	// function main(bucketName, filename) {
+//  //  		const {Storage} = require('@google-cloud/storage');
+// 	// 	const storage = new Storage();
 
- //    	console.log(`${filename} uploaded to ${bucketName}.`);
+// 	// 	async function uploadFile() {
+// 	// 	    // Uploads a local file to the bucket
+// 	// 	    await storage.bucket(bucketName).upload(filename, {
+// 	// 	      // Support for HTTP requests made with `Accept-Encoding: gzip`
+// 	// 	      gzip: true,
+// 	// 	      // By setting the option `destination`, you can change the name of the
+// 	// 	      // object you are uploading to a bucket.
+// 	// 	      metadata: {
+// 	// 	        // Enable long-lived HTTP caching headers
+// 	// 	        // Use only if the contents of the file will never change
+// 	// 	        // (If the contents will change, use cacheControl: 'no-cache')
+// 	// 	       cacheControl: 'public, max-age=31536000',
+// 	// 	    },
+// 	// 	});
 
- // 		};
+//  //    	console.log(`${filename} uploaded to ${bucketName}.`);
 
- // 		uploadFile().catch(console.error);
-	//   // [END storage_upload_file]
-	// }
+//  // 		};
 
-	// main();
-})
+//  // 		uploadFile().catch(console.error);
+// 	//   // [END storage_upload_file]
+// 	// }
+
+// 	// main();
+// })
 
 
 

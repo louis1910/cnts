@@ -5,15 +5,6 @@ const firebase = config.firebase();
 const bucket = config.bucket();
 const shortid = require("shortid");
 
-// const {Storage} = require('@google-cloud/storage'); 
-// const multer = require('multer');
-
-
-// const projectId = 'camnangtuyensinh2020';
-// const keyFilename = '../serviceAccountKey.json';
-// const storage = new Storage({projectId, keyFilename});
-
-// const bucket = storage.bucket("camnangtuyensinh2020.appspot.com");
 
 
 exports.adminLogin = (req, res)=>{
@@ -36,7 +27,9 @@ exports.postCourse = (req, res)=>{
 	const  {
 		filename,
 		subject,
-		grade
+		grade,
+		title,
+		description
 	} = req.body;
 
 	if(subject == "none" || grade == "none")
@@ -44,8 +37,26 @@ exports.postCourse = (req, res)=>{
 		res.render('layouts/add-document');
 		return;
 	}
-	else
-	{
+	else{
+
+		const file = req.file;
+		const filename = file.filename;
+
+		const fileExtension = file.originalname.split('.')[1];
+
+
+		const pathToUpload = `${file.destination}/${filename}`;
+
+		console.log(pathToUpload);
+
+		const option = {
+			destination: `thongtintuyensinh/${filename}.${fileExtension}`
+		}
+
+		bucket.upload(pathToUpload, option, (err, file)=>{
+			console.log(err);
+		});
+
 		const ref = firebase.database().ref(`course/${grade}/${subject}/`);
 
 		let atDate = new Date().toString().slice(0, 24);
@@ -54,24 +65,16 @@ exports.postCourse = (req, res)=>{
 		  [cid]: {
 		    uploadAt: atDate,
 		    title: "Alan Turing",
-		    filename: filename,
+		    filename: file.originalname,
+		    storage: option.destination,
 		    grade: grade,
-		    subject: subject
+		    subject: subject,
+		    title: title,
+		    description: description
 		  }
 		});
 
-		const option = {
-			destination: `thongtintuyensinh/${req.body.filename}`
-		}
 
-		const file = `${filename}`;
-
-		console.log(file);
-
-		bucket.upload(file, option, (err, file)=>{
-			// if(err) res.redirect('/error');
-			if(err) console.log(err);
-		});
 
 
 		// res.render("layouts/add-document", {
