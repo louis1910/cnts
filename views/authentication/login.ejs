@@ -29,6 +29,14 @@
                                     <input type="password" id="password" name="password" class="ip-block ip-fx2">
                                 </div>
 
+                                <div class="ip">
+                                    <p style="color: red; font-size: 12px;">
+                                        <% if(errors){ %>
+                                            <%= errors %>
+                                        <% } %>
+                                    </p>
+                                </div>
+
                                 <div class="btn-login-block">
                                     <div class="fea-password">
                                         <a href="#">Forget password?</a>

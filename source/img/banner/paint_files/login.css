@@ -1,0 +1,149 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Noto Sans", sans-serif;
+}
+
+body {
+  font-family: "Dosis", sans-serif;
+}
+
+.main-block {
+  width: 100%;
+  height: 100%;
+}
+
+.custom-bg {
+  background-image: url("../img/banner/login-bg4.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.custom-bg .overlay-bg {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.custom-bg .overlay-bg .left {
+  width: 50%;
+  position: relative;
+}
+.custom-bg .overlay-bg .right {
+  width: 50%;
+  position: relative;
+}
+
+.both {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.75);
+}
+
+.banner {
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/banner/login-banner2.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.form-block {
+  width: 100%;
+  height: 100vh;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.form-block .form-wrapper {
+  padding: 4rem;
+}
+.form-block .form-wrapper .ip {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 0.5rem;
+}
+
+.btn-login {
+  background: transparent;
+  border: 1px solid #191919;
+  outline: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.3s ease-in-out;
+}
+.btn-login:hover {
+  background: #191919;
+  color: #afafaf;
+  transition: 0.3s ease-in-out;
+}
+
+.ip-block {
+  border: none;
+  border-bottom: 1px solid #191919;
+  outline: none;
+  background: transparent;
+  line-height: 1.2;
+  font-size: 15px;
+}
+
+.btn-login-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.btn-login-block .fea-password {
+  display: flex;
+  flex-direction: column;
+}
+.btn-login-block .fea-password > a {
+  text-decoration: none;
+  font-size: 13px;
+  color: #191919;
+  transition: 0.3s ease-in-out;
+}
+.btn-login-block .fea-password > a:hover {
+  color: #7c57d9;
+  transition: 0.3s ease-in-out;
+}
+
+.mega-title {
+  font-size: 25px;
+  padding-bottom: 2rem;
+}
+
+.ip-subtitle {
+  font-size: 12px;
+  padding-bottom: 0.5rem;
+}
+
+.termGeneral {
+  margin-top: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.termGeneral .term-item {
+  padding: 0 0.5rem;
+}
+.termGeneral .term-item > a {
+  color: #191919;
+  font-size: 14px;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+}
+.termGeneral .term-item:hover > a {
+  text-decoration: underline;
+}
+
+/*# sourceMappingURL=login.css.map */

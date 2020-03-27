@@ -25,21 +25,25 @@ exports.postUserRegister = (req, res)=>{
 		name,
 		password,
 		retype,
-		usermail
+		usermail,
+		phone
 	} = req.body;
 
-	if(password !== retype || !name || !password || !usermail){
+	if(password !== retype || !name || !password || !usermail || !phone){
 		res.render('./authentication/register',{
-			err: ["Please fill out correctly!"],
+			err: ["Vui lòng điền đầy đủ thông tin hoặc thông tin phải hợp lệ!"],
 			values: req.body
 		});
 		return;
 	}
 
+
+
 	admin.auth().createUser({
 		email: usermail,
 		emailVerified: false,
 		displayName: name,
+		phoneNumber: "+84" + phone,
 		password: md5(password),
 		disabled: false
 	})
@@ -55,7 +59,9 @@ exports.postUserRegister = (req, res)=>{
 }
 
 exports.userLogin = (req, res, next)=>{
-	res.render('./authentication/login');
+	res.render('./authentication/login', {
+		errors: ""
+	});
 }
 
 exports.postUserLogin = async(req, res)=>{
@@ -70,7 +76,6 @@ exports.postUserLogin = async(req, res)=>{
 					res.cookie('idToken', idToken,{
 						signed: true
 					});
-
 					res.redirect('/');
 
 				})
@@ -83,14 +88,19 @@ exports.postUserLogin = async(req, res)=>{
 			const errors = err.message;
 			console.log(errors);
 			res.render('./authentication/login',{
-				errors
+				errors: errors
 			});
 		});
 }
 
 
 exports.userLogout = (req, res)=>{
-  	res.clearCookie("idToken");
-  	res.clearCookie("SSID");
-  	res.redirect('/');
+
+  	firebase.auth().signOut().then(function() {
+	  	res.clearCookie("idToken");
+	  	res.clearCookie("SSID");
+	  	res.redirect('/');
+	}).catch(function(error) {
+		res.redirect('/error');
+	});
 }

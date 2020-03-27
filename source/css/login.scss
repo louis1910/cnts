@@ -14,7 +14,7 @@ body{
 }
 
 .custom-bg{
-  background-image: url("../img/banner/login-bg.jpg");
+  background-image: url("../img/banner/login-bg4.jpg");
   @include bg-align;
   @include wh100;
   z-index: -1;
@@ -38,11 +38,12 @@ body{
   height: 100%;
   display: flex;
   flex-direction: row-reverse;
+  box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.75);
 }
 
 .banner{
   @include wh100;
-  background-image: url("../img/banner/login-banner.jpg");
+  background-image: url("../img/banner/login-banner2.png");
   @include bg-align;
 }
 

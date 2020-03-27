@@ -2,7 +2,18 @@ const config = require('./config.js');
 const db = config.db();
 const admin = config.admin();
 const firebase = config.firebase();
+const bucket = config.bucket();
 const shortid = require("shortid");
+
+// const {Storage} = require('@google-cloud/storage'); 
+// const multer = require('multer');
+
+
+// const projectId = 'camnangtuyensinh2020';
+// const keyFilename = '../serviceAccountKey.json';
+// const storage = new Storage({projectId, keyFilename});
+
+// const bucket = storage.bucket("camnangtuyensinh2020.appspot.com");
 
 
 exports.adminLogin = (req, res)=>{
@@ -48,9 +59,24 @@ exports.postCourse = (req, res)=>{
 		    subject: subject
 		  }
 		});
-		res.render("layouts/add-document", {
-			message: "Upload successfully!"
-		})
+
+		const option = {
+			destination: `thongtintuyensinh/${req.body.filename}`
+		}
+
+		const file = `${filename}`;
+
+		console.log(file);
+
+		bucket.upload(file, option, (err, file)=>{
+			// if(err) res.redirect('/error');
+			if(err) console.log(err);
+		});
+
+
+		// res.render("layouts/add-document", {
+		// 	message: "Upload successfully!"
+		// })
 	}
 	
 

@@ -94,53 +94,57 @@
                     </div>
                     <div class="wrapper-welcome">
                         <div class="form-inline overlay">
-                        <form action="" method="POST">
-                            <div class="form-element">
-                                <div><p>Chọn môn học:</p></div>
-                                <div>
-                                    <select name="subject">
-                                        <option value="none">...</option>
-                                        <option value="math">Toán</option>
-                                        <option value="literature">Ngữ Văn</option>
-                                        <option value="chemistry">Hóa Học</option>
-                                        <option value="other">Khác</option>
-                                    </select>
+                            <form method="POST" enctype="multipart/form-data">
+                                <div class="form-element">
+                                    <div><p>Chọn môn học:</p></div>
+                                    <div>
+                                        <select name="subject">
+                                            <option value="none">...</option>
+                                            <option value="math">Toán</option>
+                                            <option value="literature">Ngữ Văn</option>
+                                            <option value="chemistry">Hóa Học</option>
+                                            <option value="other">Khác</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-element">
-                                <div><p>Chọn khối học:</p></div>
-                                <div>
-                                    <select name="grade">
-                                        <option value="none">...</option>
-                                        <option value="1">Lớp 1</option>
-                                        <option value="2">Lớp 2</option>
-                                        <option value="3">Lớp 3</option>
-                                        <option value="4">Lớp 4</option>
-                                        <option value="5">Lớp 5</option>
-                                        <option value="6">Lớp 6</option>
-                                        <option value="7">Lớp 7</option>
-                                        <option value="8">Lớp 8</option>
-                                        <option value="9">Lớp 9</option>
-                                        <option value="10">Lớp 10</option>
-                                        <option value="11">Lớp 11</option>
-                                        <option value="12">Lớp 12</option>
-                                        <option value="university">Đại Học</option>
-                                    </select>
+                                <div class="form-element">
+                                    <div><p>Chọn khối học:</p></div>
+                                    <div>
+                                        <select name="grade">
+                                            <option value="none">...</option>
+                                            <option value="1">Lớp 1</option>
+                                            <option value="2">Lớp 2</option>
+                                            <option value="3">Lớp 3</option>
+                                            <option value="4">Lớp 4</option>
+                                            <option value="5">Lớp 5</option>
+                                            <option value="6">Lớp 6</option>
+                                            <option value="7">Lớp 7</option>
+                                            <option value="8">Lớp 8</option>
+                                            <option value="9">Lớp 9</option>
+                                            <option value="10">Lớp 10</option>
+                                            <option value="11">Lớp 11</option>
+                                            <option value="12">Lớp 12</option>
+                                            <option value="university">Đại Học</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-element">
-                                <div><p>Upload tài liệu</p></div>
-                                <div><input type="file" name="filename"></div>
-                            </div>
-                            <div class="form-element">
-                                <p>Mô tả:</p>
-                                <input class="form-input form-des" type="text">
-                            </div>
-                            <div class="form-button">
-                                <input class="submit-button" type="submit" value="Lưu">
-                                <input class="submit-button" type="submit" value="Hủy">
-                            </div>
-                        </form>
+                                <div class="form-element">
+                                    <p>Upload tài liệu</p>
+                                    <input type="file" name="filename">
+                                </div>
+                                <div class="form-element">
+                                    <p>Tiêu đề</p>
+                                    <input class="form-input" type="text">
+                                </div>
+                                 <div class="form-element">
+                                    <p>Mô tả:</p>
+                                    <input class="form-input form-des" type="text">
+                                </div>
+                                <div class="form-button">
+                                    <input class="submit-button" type="submit" value="Lưu">
+                                    <input class="submit-button" type="submit" value="Hủy">
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

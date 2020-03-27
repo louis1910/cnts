@@ -1,6 +1,5 @@
 let admin = require("firebase-admin");
 let firebase = require('firebase');
-const {Storage} = require('@google-cloud/storage'); 
 
 const serviceAccount = require("../serviceAccountKey.json");
 
@@ -19,19 +18,21 @@ firebase.initializeApp(firebaseConfig);
 
 admin.initializeApp({
 	credential: admin.credential.cert(serviceAccount),
-	databaseURL: "https://camnangtuyensinh2020.firebaseio.com"
+	databaseURL: "https://camnangtuyensinh2020.firebaseio.com",
+    storageBucket: "camnangtuyensinh2020.appspot.com"
 });
 
-const projectId = 'camnangtuyensinh2020';
-const keyFilename = './serviceAccountKey.json';
-const storage = new Storage({projectId, keyFilename});
+
 
 module.exports.db = ()=>{ 
 	let db = admin.firestore();
 	return db;
 }
 
-
+module.exports.bucket = ()=>{
+    var bucket = admin.storage().bucket("camnangtuyensinh2020.appspot.com");
+    return bucket;
+}
 
 module.exports.admin = ()=>{
 	return admin;
@@ -39,8 +40,4 @@ module.exports.admin = ()=>{
 
 module.exports.firebase = ()=>{
 	return firebase;
-}
-
-module.exports.storage = ()=>{
-    return storage;
 }
