@@ -16,7 +16,7 @@ exports.admin = (req, res) =>{
 }
 
 exports.addCourse = (req, res)=>{
-	res.render('layouts/add-document', {
+	res.render('layouts/addNewCourse', {
 		message: ""
 	});
 }
@@ -34,23 +34,22 @@ exports.postCourse = (req, res)=>{
 
 	if(subject == "none" || grade == "none")
 	{	
-		res.render('layouts/add-document');
+		res.render('layouts/addNewCourse');
 		return;
 	}
 	else{
 
+
+
 		const file = req.file;
 		const filename = file.filename;
-
-		const fileExtension = file.originalname.split('.')[1];
-
 
 		const pathToUpload = `${file.destination}/${filename}`;
 
 		console.log(pathToUpload);
 
 		const option = {
-			destination: `thongtintuyensinh/${filename}.${fileExtension}`
+			destination: `thongtintuyensinh/${filename}`
 		}
 
 		bucket.upload(pathToUpload, option, (err, file)=>{
@@ -81,6 +80,14 @@ exports.postCourse = (req, res)=>{
 		// 	message: "Upload successfully!"
 		// })
 	}
-	
+}
 
+exports.getFile = (req, res)=>{
+	bucket.getFiles(function(err, files) {
+		if (!err) {
+    // files is an array of File objects.
+
+    	console.log(files[0].name);
+		}
+	});
 }
