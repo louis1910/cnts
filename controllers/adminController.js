@@ -4,6 +4,7 @@ const admin = config.admin();
 const firebase = config.firebase();
 const bucket = config.bucket();
 const shortid = require("shortid");
+const fs = require("fs");
 
 
 
@@ -34,7 +35,9 @@ exports.postCourse = async(req, res)=>{
 
 	if(subject == "none" || grade == "none")
 	{	
-		res.render('layouts/addNewCourse');
+		res.render('layouts/addNewCourse', {
+			message: ""
+		});
 		return;
 	}
 	else{
@@ -44,14 +47,12 @@ exports.postCourse = async(req, res)=>{
 
 		const pathToUpload = `${file.destination}${filename}`;
 
-		console.log(pathToUpload);
-
 		const option = {
 			destination: `thongtintuyensinh/${filename}`
 		}
 
 		await bucket.upload(pathToUpload, option, (err, file)=>{
-			console.log(err);
+			if(err) res.redirect('/error');
 		});
 
 
@@ -68,7 +69,7 @@ exports.postCourse = async(req, res)=>{
 
 		let atDate = new Date().toString().slice(0, 24);
 
-		ref.set({
+		await ref.set({
 		  [cid]: {
 		    uploadAt: atDate,
 		    title: "Alan Turing",
@@ -82,12 +83,11 @@ exports.postCourse = async(req, res)=>{
 		  }
 		});
 
+		fs.unlinkSync(pathToUpload);
 
-
-
-		// res.render("layouts/add-document", {
-		// 	message: "Upload successfully!"
-		// })
+		res.render("layouts/addNewCourse", {
+			message: "Upload successfully!"
+		})
 	}
 }
 
