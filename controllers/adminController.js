@@ -21,7 +21,7 @@ exports.addCourse = (req, res)=>{
 	});
 }
 
-exports.postCourse = (req, res)=>{
+exports.postCourse = async(req, res)=>{
 	const cid = shortid.generate();
 
 	const  {
@@ -39,12 +39,10 @@ exports.postCourse = (req, res)=>{
 	}
 	else{
 
-
-
 		const file = req.file;
 		const filename = file.filename;
 
-		const pathToUpload = `${file.destination}/${filename}`;
+		const pathToUpload = `${file.destination}${filename}`;
 
 		console.log(pathToUpload);
 
@@ -52,8 +50,18 @@ exports.postCourse = (req, res)=>{
 			destination: `thongtintuyensinh/${filename}`
 		}
 
-		bucket.upload(pathToUpload, option, (err, file)=>{
+		await bucket.upload(pathToUpload, option, (err, file)=>{
 			console.log(err);
+		});
+
+
+		const fileStream = bucket.file(option.destination);
+		var urlStream = '';
+		await fileStream.getSignedUrl({
+				action: 'read',
+				expires: '03-09-2491'
+			}).then(signedUrls => {
+				urlStream = signedUrls[0];
 		});
 
 		const ref = firebase.database().ref(`course/${grade}/${subject}/`);
@@ -69,7 +77,8 @@ exports.postCourse = (req, res)=>{
 		    grade: grade,
 		    subject: subject,
 		    title: title,
-		    description: description
+		    description: description,
+		    urlStream: urlStream
 		  }
 		});
 
@@ -83,11 +92,46 @@ exports.postCourse = (req, res)=>{
 }
 
 exports.getFile = (req, res)=>{
-	bucket.getFiles(function(err, files) {
-		if (!err) {
-    // files is an array of File objects.
+	// bucket.getFiles(function(err, files) {
+	// 	if (!err) {
+	// 		const file = bucket.file(files[1].name);
+	// 		console.log(files[1].name);
+	// 		file.getSignedUrl({
+	// 		  action: 'read',
+	// 		  expires: '03-09-2491'
+	// 		}).then(signedUrls => {
+	// 		  // signedUrls[0] contains the file's public URL
+	// 		  console.log(signedUrls[0]);
+	// 		});
+	// 	}
+	// });
 
-    	console.log(files[0].name);
-		}
-	});
+	// const file = bucket.file(files[1].name);
+	// console.log(files[1].name);
+	// file.getSignedUrl({
+	// 	action: 'read',
+	// 	expires: '03-09-2491'
+	// }).then(signedUrls => {
+	// 		  // signedUrls[0] contains the file's public URL
+	// 	console.log(signedUrls[0]);
+	// });
+
+
+
+	// bucket.getFiles((err, files)=>{
+	// 	if(!err){
+	// 		console.log(files[1].name);
+	// 	}
+	// })
+
+			// const file = bucket.file(files[0].name);
+
+			// file.getSignedUrl({
+			//   action: 'read',
+			//   expires: '03-09-2491'
+			// }).then(signedUrls => {
+			//   // signedUrls[0] contains the file's public URL
+			//   console.log(signedUrls[0]);
+			// });
+
 }
