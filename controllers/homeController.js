@@ -6,8 +6,26 @@ const config = require('./config.js');
 const admin = config.admin();
 const firebase = config.firebase();
 
-exports.home = (req, res)=>{
+exports.home = async(req, res)=>{
 	const idToken = req.signedCookies.idToken;
+	const refCourse = firebase.database().ref(`course`);
+	const refSubjects = firebase.database().ref(`subjects/`);
+
+
+	let grade, subjects;
+
+	refCourse.on("value", (snapshot)=>{
+		let value = snapshot.val();
+
+		grade = Object.keys(value);
+	});
+
+	refSubjects.on("value", (snapshot)=>{
+		let value = snapshot.val();
+		
+	});
+
+
 	if(typeof(idToken) != 'undefined' && idToken != false){
 		admin.auth().verifyIdToken(idToken)
 		  	.then((decodedToken)=> {
@@ -15,9 +33,16 @@ exports.home = (req, res)=>{
 		    	admin.auth().getUser(uid)
 		    		.then((user)=>{
 		    			let displayName = user.displayName;
-		    			res.render('index', {
-		    				displayName: displayName
-		  				})
+		    			try{
+			    			res.render('indexv2', {
+			    				displayName: displayName,
+			    				grade: grade,
+			    				subjects: subjects
+			  				})
+		    			} catch(err){
+		    				res.redirect("/error")
+		    			}
+
 		    		})
 		    		.catch((err)=>{
 		    			console.log(err);
@@ -30,8 +55,10 @@ exports.home = (req, res)=>{
 		return;
 	}else {
 		res.cookie('MK3S2', random);
-		res.render('index', {
-			displayName: ''
+		res.render('indexv2', {
+			displayName: '',
+		   	grade: grade,
+		   	subjects: subjects
 		});
 	}
 }

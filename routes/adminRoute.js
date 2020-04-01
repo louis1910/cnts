@@ -19,7 +19,7 @@ const crypto = require('crypto');
 
 
 var storage = multer.diskStorage({
-  destination: './uploads/file/',
+  destination: './uploads/file',
   filename: function (req, file, cb) {
     crypto.pseudoRandomBytes(16, function (err, raw) {
       if (err) return cb(err)
@@ -30,9 +30,6 @@ var storage = multer.diskStorage({
 
 var upload = multer({ storage: storage })
 
-
-// const upload = multer({ dest: './uploads/file/' });
-// const upload = multer({ storage:storage});
 
 
 const {
@@ -45,6 +42,6 @@ const {
 router.route('/').get(admin);
 router.route('/add-new-course').get(addCourse);
 router.route('/add-new-course').post(upload.single('filename'),postCourse);
-router.route('/getfile').get(getFile);
+// router.route('/getfile').get(getFile);
 
 module.exports = router;

@@ -45,10 +45,10 @@ exports.postCourse = async(req, res)=>{
 		const file = req.file;
 		const filename = file.filename;
 
-		const pathToUpload = `${file.destination}${filename}`;
+		const pathToUpload = `${file.destination}/${filename}`;
 
 		const option = {
-			destination: `thongtintuyensinh/${filename}`
+			destination: `tailieumonhoc/${grade}/${filename}`
 		}
 
 		await bucket.upload(pathToUpload, option, (err, file)=>{
@@ -91,47 +91,6 @@ exports.postCourse = async(req, res)=>{
 	}
 }
 
-exports.getFile = (req, res)=>{
-	// bucket.getFiles(function(err, files) {
-	// 	if (!err) {
-	// 		const file = bucket.file(files[1].name);
-	// 		console.log(files[1].name);
-	// 		file.getSignedUrl({
-	// 		  action: 'read',
-	// 		  expires: '03-09-2491'
-	// 		}).then(signedUrls => {
-	// 		  // signedUrls[0] contains the file's public URL
-	// 		  console.log(signedUrls[0]);
-	// 		});
-	// 	}
-	// });
-
-	// const file = bucket.file(files[1].name);
-	// console.log(files[1].name);
-	// file.getSignedUrl({
-	// 	action: 'read',
-	// 	expires: '03-09-2491'
-	// }).then(signedUrls => {
-	// 		  // signedUrls[0] contains the file's public URL
-	// 	console.log(signedUrls[0]);
-	// });
-
-
-
-	// bucket.getFiles((err, files)=>{
-	// 	if(!err){
-	// 		console.log(files[1].name);
-	// 	}
-	// })
-
-			// const file = bucket.file(files[0].name);
-
-			// file.getSignedUrl({
-			//   action: 'read',
-			//   expires: '03-09-2491'
-			// }).then(signedUrls => {
-			//   // signedUrls[0] contains the file's public URL
-			//   console.log(signedUrls[0]);
-			// });
-
+exports.getCourse = (req, res)=>{
+	const ref = firebase.database().ref(`course/8/math/`);
 }
