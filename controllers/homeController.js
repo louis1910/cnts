@@ -9,12 +9,12 @@ const firebase = config.firebase();
 exports.home = async(req, res)=>{
 	const idToken = req.signedCookies.idToken;
 	const refCourse = firebase.database().ref(`course`);
-	const refSubjects = firebase.database().ref(`subjects/`);
+	const refSubjects = firebase.database().ref(`subjects`);
 
 
 	let grade, subjects;
 
-	refCourse.on("value", (snapshot)=>{
+	await refCourse.on("value", (snapshot)=>{
 		let value = snapshot.val();
 
 		grade = Object.keys(value);
@@ -22,7 +22,10 @@ exports.home = async(req, res)=>{
 
 	refSubjects.on("value", (snapshot)=>{
 		let value = snapshot.val();
-		
+
+		subjects = Object.keys(value);
+
+
 	});
 
 

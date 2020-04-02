@@ -101,7 +101,7 @@
             <div class="body-main">
                 <h1 class="body-title">Tài liệu mới</h1>
                 <div class="math">
-                    <form action="">
+                    <form action="" class="form-search">
                         <div class="search-subject">
                             <hr class="rule">
                             <div class="sel sel--superman">
@@ -119,11 +119,12 @@
                                     <% if(subjects) subjects.forEach((val)=>{ %>
                                         <option value=<%= val %>><%= val %></option>
                                     <% }) %>
+                                    <option value="Khác">Khác</option>
                                 </select>
                             </div>
                         </div>
-                        <div>
-                            <button type="submit">Xem ngay!</button>
+                        <div class="btn-search-block">
+                            <input type="submit" class="btn-search" value="Xem ngay!">
                         </div>
                     </form>
 

@@ -94,3 +94,58 @@ exports.postCourse = async(req, res)=>{
 exports.getCourse = (req, res)=>{
 	const ref = firebase.database().ref(`course/8/math/`);
 }
+
+exports.member = async(req, res)=>{
+  	let listedUsers = [];
+
+	listAllUsers = async(nextPageToken) => {
+  // List batch of users, 1000 at a time.
+	  	admin.auth().listUsers(1000, nextPageToken)
+	    	.then(function(listUsersResult) {
+		    	listUsersResult.users.forEach((userRecord)=>{
+			      	let user = {
+			      		displayName: userRecord.displayName,
+				      	phoneNumber: userRecord.phoneNumber,
+				      	lastSignInTime: userRecord.metadata.lastSignInTime,
+				      	creationTime: userRecord.metadata.creationTime,
+				      	email: userRecord.email
+			      	}
+			      	console.log(user);
+		      		listedUsers.push(user);
+		      	});		      
+			    if (listUsersResult.pageToken) {
+			        // List next batch of users.
+			        listAllUsers(listUsersResult.pageToken);
+			    }
+			    res.render("layouts/member",{
+					listedUsers: listedUsers
+				});
+			})
+		    .catch(function(error) {
+		      console.log('Error listing users:', error);
+		      res.redirect('/error');
+		    });
+	}
+// Start listing users from the beginning, 1000 at a time.
+	listAllUsers();
+}
+
+exports.inventory = (req, res)=>{
+	res.render("layouts/inventory");
+}
+
+exports.addDocument = (req, res)=>{
+	res.render("layouts/add-new-document");
+}
+
+exports.adv = (req, res)=>{
+	res.render("layouts/adv")
+}
+
+exports.feedback = (req, res)=>{
+	res.render("layouts/feedback")
+}
+
+exports.settings = (req,res)=>{
+	res.render("layouts/settings")
+}

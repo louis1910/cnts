@@ -235,13 +235,6 @@ button:focus{
   user-select: none;
 }
 
-.sel__box__options::after {
-  content: '\f00c';
-  font-family: 'FontAwesome';
-  font-size: 0.5em;
-  margin-left: 5px;
-  display: none;
-}
 
 .sel__box__options.selected::after {
   display: inline;
@@ -288,4 +281,25 @@ button:focus{
     opacity: 0;
   }
 }
+
+.form-search{
+  @include flex-column-all-center;
+  .btn-search-block{
+    .btn-search{
+      cursor: pointer;
+      font-size: 20px;
+      padding: 5px 10px;
+      background: transparent;
+      box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3);
+      border: 1px solid rgba(0,0,0,0.4);
+      @include trans300ms;
+      &:hover{
+        background: rgba(0,0,0,0.8);
+        color: white;
+        //@include trans300ms;
+      }
+    }
+  }
+}
+
 

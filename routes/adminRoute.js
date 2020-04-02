@@ -36,12 +36,26 @@ const {
 	admin,
 	addCourse,
 	postCourse,
-	getFile
+	getFile,
+  member,
+  inventory,
+  addDocument,
+  adv,
+  feedback,
+  settings
 } = require('../controllers/adminController');
 
 router.route('/').get(admin);
 router.route('/add-new-course').get(addCourse);
 router.route('/add-new-course').post(upload.single('filename'),postCourse);
 // router.route('/getfile').get(getFile);
+router.route('/member').get(member);
+router.route('/inventory').get(inventory);
+router.route('/add-new-document').get(addDocument);
+router.route('/adv').get(adv);
+router.route('/feedback').get(feedback);
+router.route('/settings').get(settings);
+
+module.exports = router;
 
 module.exports = router;
