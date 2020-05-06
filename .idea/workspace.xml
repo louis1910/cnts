@@ -2,12 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6834e66-25ed-4725-94a5-9e5a6eb8c462" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/source/css/final.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/adminController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/adminController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/homeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/homeController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/css/stylev2.css" beforeDir="false" afterPath="$PROJECT_DIR$/source/css/stylev2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/css/stylev2.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/source/css/stylev2.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/css/stylev2.scss" beforeDir="false" afterPath="$PROJECT_DIR$/source/css/stylev2.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/indexv2.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/indexv2.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/indexv1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/indexv2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/css/_global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/source/css/_global.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/css/layouts.css" beforeDir="false" afterPath="$PROJECT_DIR$/source/css/layouts.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/source/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/css/stylev1.css" beforeDir="false" afterPath="$PROJECT_DIR$/source/css/stylev1.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/indexv2.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/member.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/member.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/sampleUploads.ejs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +39,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -43,18 +54,6 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -135,6 +134,21 @@
       <workItem from="1585670473949" duration="503000" />
       <workItem from="1585708400311" duration="436000" />
       <workItem from="1585736836967" duration="4467000" />
+      <workItem from="1585972672842" duration="12670000" />
+      <workItem from="1585988521956" duration="1008000" />
+      <workItem from="1586058936441" duration="36000" />
+      <workItem from="1586087311786" duration="4440000" />
+      <workItem from="1586149537988" duration="442000" />
+      <workItem from="1586156759717" duration="1858000" />
+      <workItem from="1586187353465" duration="105000" />
+      <workItem from="1586418147308" duration="4160000" />
+      <workItem from="1586931624709" duration="2399000" />
+      <workItem from="1587011184147" duration="883000" />
+      <workItem from="1587227814127" duration="744000" />
+      <workItem from="1587303588879" duration="112000" />
+      <workItem from="1587620225548" duration="2364000" />
+      <workItem from="1588695235545" duration="834000" />
+      <workItem from="1588741355242" duration="58000" />
     </task>
     <servers />
   </component>
@@ -150,11 +164,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="317" y="145" key="EditFileWatcherDialog/0.0.1366.728@0.0.1366.728" timestamp="1584277229224" />
-    <state x="463" y="121" key="FileChooserDialogImpl" timestamp="1580883367944">
+    <state x="463" y="121" key="FileChooserDialogImpl" timestamp="1587303697120">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="121" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1580883367944" />
-    <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1578574452123" />
+    <state x="463" y="121" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587303697120" />
     <state x="384" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1585212158878">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

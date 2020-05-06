@@ -88,13 +88,35 @@
             <div class="side-right">
                 <div class="wrap-form">
                     <div class="form-sum">
-                        <p class="form-title">Thêm tài liệu mới</p>
+                        <p class="form-title">Quản lý thành viên</p>
                     </div>
-                    <div class="wrapper-welcome">
+                    <div class="wrapper-welcome">                     
                         
-                        <%if(listedUsers) listedUsers.forEach((val)=>{%>
-                            <p><%= val.displayName %></p>
-                        <% }) %>
+                            
+                            <table>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Tên thành viên</th>
+                                    <th>Số điện thoại</th>
+                                    <th>Email</th>
+                                </tr>
+                            <%let stt = 1; if(listedUsers) listedUsers.forEach((val)=>{ %>
+                                <tr>
+                                    <td><%= stt %></td>
+                                    <td>
+                                        <%= val.displayName %>
+                                    </td>
+                                    <td>
+                                        <%= val.phoneNumber %>
+                                    </td>
+                                    <td>
+                                        <%= val.email %>
+                                    </td>
+                                </tr>
+                                <% stt++ %>
+                            <% }) %>
+                            </table>
+                        
                     </div>
                 </div>
             </div>

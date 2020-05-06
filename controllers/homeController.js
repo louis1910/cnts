@@ -6,27 +6,12 @@ const config = require('./config.js');
 const admin = config.admin();
 const firebase = config.firebase();
 
+
 exports.home = async(req, res)=>{
 	const idToken = req.signedCookies.idToken;
-	const refCourse = firebase.database().ref(`course`);
-	const refSubjects = firebase.database().ref(`subjects`);
-
-
-	let grade, subjects;
-
-	await refCourse.on("value", (snapshot)=>{
-		let value = snapshot.val();
-
-		grade = Object.keys(value);
-	});
-
-	refSubjects.on("value", (snapshot)=>{
-		let value = snapshot.val();
-
-		subjects = Object.keys(value);
-
-
-	});
+	let listedData;
+	let numPage = req.query.page || 1;
+	let perPage = 8;
 
 
 	if(typeof(idToken) != 'undefined' && idToken != false){
@@ -34,14 +19,25 @@ exports.home = async(req, res)=>{
 		  	.then((decodedToken)=> {
 		    	const uid = decodedToken.uid;
 		    	admin.auth().getUser(uid)
-		    		.then((user)=>{
+		    		.then((user)=>{		    				
 		    			let displayName = user.displayName;
 		    			try{
-			    			res.render('indexv2', {
-			    				displayName: displayName,
-			    				grade: grade,
-			    				subjects: subjects
-			  				})
+							let ref = admin.database().ref(`course/12/Toán`);
+							ref.on('value', (snapshot)=>{
+								let data = snapshot.val();
+								let start = (numPage - 1) * perPage;
+								let end = numPage * perPage;
+								listedData = Object.entries(data);
+
+								listedData.slice(start, end);
+				    			res.render('indexfinal', {
+				    				displayName: displayName,
+				    				listedData: listedData
+				  				})
+							}, (err)=>{
+								console.log(err);
+							});
+
 		    			} catch(err){
 		    				res.redirect("/error")
 		    			}
@@ -57,12 +53,24 @@ exports.home = async(req, res)=>{
 			});
 		return;
 	}else {
-		res.cookie('MK3S2', random);
-		res.render('indexv2', {
-			displayName: '',
-		   	grade: grade,
-		   	subjects: subjects
+		let ref = admin.database().ref(`course/12/Toán`);
+		ref.on('value', (snapshot)=>{
+			let data = snapshot.val();
+			let start = (numPage - 1) * perPage;
+			let end = numPage * perPage;
+			listedData = Object.entries(data);
+
+			pagination = listedData.slice(start, end);
+
+			res.cookie('MK3S2', random);
+			res.render('indexfinal', {
+				displayName: '',
+				listedData: pagination
+			});
+		}, (err)=>{
+			console.log(err);
 		});
+
 	}
 }
 

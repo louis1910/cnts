@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/final.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gotu&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <div class="header__1 wrap">
+                <div class="logo">
+                    <a href="/" class="logo__link">
+                        <img src="/img/logo.png" alt="logo.png">
+                    </a>
+                </div>
+                <div>
+                    <div class="auth">
+                        <div class="auth__login">
+                            <a href="#" class="link--format">Đăng nhập</a>
+                        </div>
+                        <div class="abc"></div>
+                        <div class="auth__register">
+                            <a href="#" class="link--format">Đăng kí</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="header__2 wrap">
+                <div class="dropdown">
+                    <div class="dropdown__btn">
+                        <div class="dropdown__btn--style">
+                            <img src="/img/icons/menu.svg" alt="">
+                        </div>
+                        Danh sách lựa chọn
+                    </div>
+                    <ul class="dropdown__list">
+                        <li class="dropdown__list--style">
+                            <a href="#">Tài liệu tuyển sinh</a>
+                            <img src="/img/icons/right_link.png" alt="">
+                        </li>
+                        <li class="dropdown__list--style">
+                            <a href="#">Thông tin tuyển sinh 2021</a>
+                            <img src="/img/icons/right_link.png" alt="">
+                        </li>
+                        <li class="dropdown__list--style">
+                            <a href="#">Quy định tuyển sinh 2021</a>
+                            <img src="/img/icons/right_link.png" alt="">
+                        </li>
+                        <li class="dropdown__list--style">
+                            <a href="#">...</a>
+                            <img src="/img/icons/right_link.png" alt="">
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="menu">
+                    <div class="">
+                        <ul class="menu__list">
+                            <li><a href="" class="">Trang chủ</a></li>
+                            <li><a href="">Thông tin tuyển sinh</a></li>
+                            <li><a href="">Liên hệ</a></li>
+                            <li><a href="">Về chúng tôi</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="cover-slide">
+            <div class="cover-slide__custom">
+                <div class="cover-slide__custom__item">
+                    <img src="/img/banner/library.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="brand wrap__section">
+            <div class="brand__text">
+                <h1>Deal of the day up to 20% off Special offer</h1>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="show-category wrap__section">
+            <div class="categories">
+
+            <% if (listedData) { %>
+                <% listedData.forEach((value)=>{ %>
+
+                <div class="categories__item">
+                    <div class="categories__item--subjects">
+                        <%= value[1].subject %>
+                    </div>
+                    <div class="categories__item--title">
+                        20+ công thức toán học
+                    </div>
+                    <div class="categories__item--image">
+                        <div class="categories__item--image__overlay"></div>
+                        <div class="categories__item--image__tool">
+                            <a href="#" class="item-tool--image">
+                                <img src="/img/icons/download.svg" alt="" class="tool__image">
+                            </a>
+                            <a href="<%= value[1].urlStream %>" target="blank" class="item-tool--image">
+                                <img src="/img/icons/vision.svg" alt="" class="tool__image">
+                            </a>
+                            <a href="#" class="item-tool--image">
+                                <img src="/img/icons/share.svg" alt="" class="tool__image">
+                            </a>
+                        </div>
+                        <img src="/img/banner/math.jpg" alt="">
+                    </div>
+                    <div class="categories__item--update">
+                        Last update: 27-05-2021
+                    </div>
+                </div>
+
+                <% }) %>
+            <% } %>
+
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="contact wrap__section">
+            <a href="#" class="contact__item">
+                <img src="/img/social/facebook.svg" alt="">
+            </a>
+
+            <a href="#" class="contact__item">
+                <img src="/img/social/whatsapp.svg" alt="">
+            </a>
+
+            <a href="#" class="contact__item">
+                <img src="/img/social/telegram.png" alt="">
+            </a>
+
+            <a href="#" class="contact__item">
+                <img src="/img/social/twitter.svg" alt="">
+            </a>
+        </div>
+    </section>
+    <section>
+        <div class="footer wrap__section">
+            <div class="footer__first">
+                <img src="/img/logov3.png" alt="" class="footer__logo">
+                <div class="footer__contact">
+                    <a href="#">Facebook</a>
+                    <a href="#">Whatsapp</a>
+                    <a href="#">Telegram</a>
+                </div>
+            </div>
+
+            <div class="footer__phone">
+                <div class="footer--text">Contact</div>
+                <div>+8412345678</div>
+                <div>+8423258179</div>
+            </div>
+            <div class="footer__information">
+                <div class="footer--text">Information</div>
+                <a href="#">About us</a>
+                <a href="#">More Search</a>
+                <a href="#">Blogs</a>
+                <a href="#">Event</a>
+            </div>
+            <div class="footer__mail">
+                <div class="footer--text">Send Us Your Email</div>
+                <form action="" class="form-email">
+                    <input type="text" placeholder="Your Email..." class="input--custom">
+                    <button type="submit" class="btn--custom">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="contact wrap__section">
+           <p>Copyright© 2020</p>
+        </div>
+    </section>
+</body>
+</html>

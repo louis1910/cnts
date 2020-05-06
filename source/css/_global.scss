@@ -73,4 +73,19 @@
   height: 100%;
 }
 
+@mixin link_effect{
+  font-size: 20px;
+  color: white;
+  @include trans300ms;
+  &:hover{
+    color: #7c57d9;
+  }
+}
+
+@mixin text{
+  font-family: "Gotu";
+  font-weight: 400;
+  color: black;
+}
+
 

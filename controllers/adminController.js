@@ -65,14 +65,13 @@ exports.postCourse = async(req, res)=>{
 				urlStream = signedUrls[0];
 		});
 
-		const ref = firebase.database().ref(`course/${grade}/${subject}/`);
+		const ref = firebase.database().ref(`course/${grade}/${subject}`);
 
 		let atDate = new Date().toString().slice(0, 24);
 
-		await ref.set({
-		  [cid]: {
+		await ref.child(cid).set({
 		    uploadAt: atDate,
-		    title: "Alan Turing",
+		    title: title,
 		    filename: file.originalname,
 		    storage: option.destination,
 		    grade: grade,
@@ -80,7 +79,6 @@ exports.postCourse = async(req, res)=>{
 		    title: title,
 		    description: description,
 		    urlStream: urlStream
-		  }
 		});
 
 		fs.unlinkSync(pathToUpload);
