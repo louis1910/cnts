@@ -28,11 +28,14 @@ exports.home = async(req, res)=>{
 								let start = (numPage - 1) * perPage;
 								let end = numPage * perPage;
 								listedData = Object.entries(data);
+								let len = Math.ceil(listedData.length / 8);
 
 								listedData.slice(start, end);
 				    			res.render('indexfinal', {
 				    				displayName: displayName,
-				    				listedData: listedData
+				    				listedData: listedData,
+									pageLen: len,
+									numPage: numPage
 				  				})
 							}, (err)=>{
 								console.log(err);
@@ -59,13 +62,16 @@ exports.home = async(req, res)=>{
 			let start = (numPage - 1) * perPage;
 			let end = numPage * perPage;
 			listedData = Object.entries(data);
+			let len = Math.ceil(listedData.length / 8);
 
 			pagination = listedData.slice(start, end);
 
 			res.cookie('MK3S2', random);
 			res.render('indexfinal', {
 				displayName: '',
-				listedData: pagination
+				listedData: pagination,
+				pageLen: len,
+				numPage: numPage
 			});
 		}, (err)=>{
 			console.log(err);

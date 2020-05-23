@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/member-v2.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="header wrap">
+            <div class="header__logo">
+                <h1>Administrator</h1>
+            </div>
+            <div class="header__features">
+                <a href="/admin/member" class="header__features__item active-page">
+                    <img src="/img/icons/user.png" alt="" class="icon">
+                    <p class="header__features__name">Member</p>
+                </a>
+                <a href="/admin/inventory" class="header__features__item">
+                    <img src="/img/icons/storage.png" alt="" class="icon">
+                    <p class="header__features__name">Inventory</p>
+                </a>
+            </div>
+            <div class="header__menu">
+                <img src="/img/icons/menu_2.png" alt="" style="width: 20px; height: 20px;">
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="wrap-body">
+            <div class="wrap-body__left ">
+                <div class="listOfacc wrap2">
+                    <div class="listOfacc__title layout wrap3">
+                        <p class="layout__item">Name</p>
+                        <p class="layout__item">Email</p>
+                        <p class="layout__item">Phone</p>
+                        <p class="layout__item">Status</p>
+                        <p class="layout__item">Actions</p>
+                    </div>
+                    <div class="listOfacc__content">
+                        <div class="layout wrap3">
+                            <p class="layout__item">FP</p>
+                            <p class="layout__item">info@mail</p>
+                            <p class="layout__item">+84xxxxxxxxx</p>
+                            <p class="layout__item">Alive</p>
+                            <p class="layout__item">Sleep</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="wrap-body__right wrap2">
+                <div class="formOflist">
+                    <form action="POST" class="layout3">
+                        <label class="wrap5">List of accounts</label>
+                        <select class="layout4" name="" id="">
+                            <option value="all">All</option>
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                        <div class="wrap6">
+                            <input class="formButton" type="submit" value="Filter">
+                        </div>
+                    </form>
+                </div>
+                <div class="formOfacc">
+                    <form action="POST" class="layout3">
+                        <label class="wrap5">Search for account</label>
+                        <input class="layout4" type="text" placeholder="firstperson@info.com">
+                        <div class="wrap5 wrap6">
+                            <input class="formButton" type="submit" value="Search">
+                        </div>
+                    </form>
+                </div>
+                <div class="block-mini">
+                    <div class="mini-logo">
+                        <img src="/img/logo.png" alt="" class="mini-logo__corner">
+                        <p>Copyright 2020</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+</body>
+</html>

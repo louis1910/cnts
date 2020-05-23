@@ -37,12 +37,12 @@ const {
 	addCourse,
 	postCourse,
 	getFile,
-  member,
-  inventory,
-  addDocument,
-  adv,
-  feedback,
-  settings
+    member,
+    inventory,
+    addDocument,
+    adv,
+    feedback,
+    settings
 } = require('../controllers/adminController');
 
 router.route('/').get(admin);
@@ -55,7 +55,5 @@ router.route('/add-new-document').get(addDocument);
 router.route('/adv').get(adv);
 router.route('/feedback').get(feedback);
 router.route('/settings').get(settings);
-
-module.exports = router;
 
 module.exports = router;

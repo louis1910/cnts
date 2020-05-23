@@ -115,7 +115,7 @@ exports.member = async(req, res)=>{
 			        // List next batch of users.
 			        listAllUsers(listUsersResult.pageToken);
 			    }
-			    res.render("layouts/member",{
+			    res.render("layouts/members-v2",{
 					listedUsers: listedUsers
 				});
 			})
