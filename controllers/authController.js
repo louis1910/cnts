@@ -48,7 +48,15 @@ exports.postUserRegister = (req, res)=>{
 		disabled: false
 	})
 	.then((userRecord)=>{
-		console.log(userRecord);
+		console.log(userRecord.uid);
+		let uid = userRecord.uid;
+
+		const ref = firebase.database().ref(`member/role`);
+
+		ref.child(uid).set({
+			role: "user"
+		});
+
 		res.redirect('/user/login');
 	})
 	.catch((err)=>{

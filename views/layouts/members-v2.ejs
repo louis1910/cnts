@@ -36,20 +36,26 @@
             <div class="wrap-body__left ">
                 <div class="listOfacc wrap2">
                     <div class="listOfacc__title layout wrap3">
-                        <p class="layout__item">Name</p>
-                        <p class="layout__item">Email</p>
-                        <p class="layout__item">Phone</p>
-                        <p class="layout__item">Status</p>
-                        <p class="layout__item">Actions</p>
+                        <p class="layout__item_h">Name</p>
+                        <p class="layout__item_h">Email</p>
+                        <p class="layout__item_h">Phone</p>
+                        <p class="layout__item_h">Last Login</p>
+                        <p class="layout__item_h">Role</p>
+                        <p class="layout__item_h">Actions</p>
                     </div>
                     <div class="listOfacc__content">
-                        <div class="layout wrap3">
-                            <p class="layout__item">FP</p>
-                            <p class="layout__item">info@mail</p>
-                            <p class="layout__item">+84xxxxxxxxx</p>
-                            <p class="layout__item">Alive</p>
-                            <p class="layout__item">Sleep</p>
-                        </div>
+                    <%if(listedUsers){%>
+                        <% listedUsers.forEach((user)=>{%>
+                                <div class="layout wrap3">
+                                    <p class="layout__item"><%= user.displayName%></p>
+                                    <p class="layout__item"><%= user.email%></p>
+                                    <p class="layout__item"><%= user.phoneNumber%></p>
+                                    <p class="layout__item"><%= user.lastSignInTime%></p>
+                                    <p class="layout__item">Admin</p>
+                                    <p class="layout__item">None</p>
+                                </div>
+                        <% }) %>
+                    <% } %>
                     </div>
                 </div>
             </div>

@@ -3,15 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="c6834e66-25ed-4725-94a5-9e5a6eb8c462" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/adminController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/adminController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/homeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/homeController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/adminRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/adminRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/css/final.css" beforeDir="false" afterPath="$PROJECT_DIR$/source/css/final.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/css/final.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/source/css/final.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/css/final.scss" beforeDir="false" afterPath="$PROJECT_DIR$/source/css/final.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/img/icons/menu_2.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/img/icons/user.png" beforeDir="false" afterPath="$PROJECT_DIR$/source/img/icons/user.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/indexfinal.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/indexfinal.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/authController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/css/member-v2.css" beforeDir="false" afterPath="$PROJECT_DIR$/source/css/member-v2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/css/member-v2.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/source/css/member-v2.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/css/member-v2.scss" beforeDir="false" afterPath="$PROJECT_DIR$/source/css/member-v2.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/members-v2.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/members-v2.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,6 +139,7 @@
       <workItem from="1590068534823" duration="3295000" />
       <workItem from="1590123489880" duration="2000" />
       <workItem from="1590152334105" duration="4642000" />
+      <workItem from="1590205383281" duration="3200000" />
     </task>
     <servers />
   </component>

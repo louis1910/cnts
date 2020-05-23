@@ -117,9 +117,16 @@ header {
   display: flex;
   width: 100%;
 }
+.layout__item_h {
+  width: 20%;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+}
 .layout__item {
   width: 20%;
   text-align: center;
+  font-size: 13px;
 }
 
 .wrap3 {
