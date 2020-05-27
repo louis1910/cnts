@@ -77,6 +77,12 @@ exports.postUserRegister = (req, res)=>{
 				values: req.body
 			});
 		}
+		if(err.code == 'auth/invalid-phone-number') {
+			res.render('./authentication/register', {
+				err: "Số điện thoại đã tồn tại hoặc không hợp lệ, vui lòng chọn email khác!",
+				values: req.body
+			});
+		}
 	});
 
 
@@ -102,13 +108,24 @@ exports.postUserLogin = (req, res)=>{
 					admin.auth().verifyIdToken(idToken)
 						.then((decodedToken)=> {
 							const uid = decodedToken.uid;
-							
-						})
+							let ref = admin.database().ref(`users/${uid}`);
+							ref.on('value', (snapshot)=>{
+								let data = snapshot.val();
 
-					res.cookie('idToken', idToken,{
-						signed: true
-					});
-					res.redirect('/');
+								if(data.role == "user"){
+									res.cookie('idToken', idToken,{
+										signed: true
+									});
+									res.redirect('/');
+								}
+								if(data.role == "admin"){
+									res.cookie('idToken', idToken,{
+										signed: true
+									});
+									res.redirect('/admin');
+								}
+							})
+						})
 
 				})
 				.catch(function(err) {

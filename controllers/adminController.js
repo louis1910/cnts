@@ -109,6 +109,7 @@ exports.member = async(req, res)=>{
 				      	email: userRecord.email
 			      	}
 			      	console.log(user);
+
 		      		listedUsers.push(user);
 		      	});		      
 			    if (listUsersResult.pageToken) {
@@ -129,7 +130,18 @@ exports.member = async(req, res)=>{
 }
 
 exports.inventory = (req, res)=>{
-	res.render("layouts/inventory");
+	let ref = admin.database().ref(`course/12/Toán`);
+
+	ref.on('value', (snapshot)=>{
+		let data = snapshot.val();
+		let listedData = Object.entries(data);
+		// console.log(listedData[0][1]);
+		res.render('layouts/inventory', {
+			listedData: listedData
+		});
+	}, (err)=>{
+		console.log(err);
+	});
 }
 
 exports.addDocument = (req, res)=>{

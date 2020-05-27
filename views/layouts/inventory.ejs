@@ -1,104 +1,106 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>INVENTORY MANAGEMENT</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/layouts.css">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,700,700i&display=swap" rel="stylesheet">
+    <title>Document</title>
 </head>
 <body>
-
-    <div class="wrap">
-        <div class="banner">
-            <div class="menu-block">
-                <div class="banner-left">
-                    <div class="banner-title"><p>Cẩm Nang Tuyển Sinh</p></div>
-                    <div class="banner-admin"><p>Administrator</p></div>
-                </div>
-            </div>
-            <div class="banner-right">
-
-            </div>
+<header>
+    <div class="header wrap">
+        <div class="header__logo">
+            <h1>Administrator</h1>
         </div>
-        <div class="half-wrap">
-            <div class="side-left">
-                <div class="side-left-title home">
-                    <div class="side-img">
-                        <img src="../img/icons/user.png" alt="admin" class="img-admin">
-                    </div>
-                    <div class="tooltip">
-                        <span class="tooltiptext">Hello, Administrator!</span>
-                    </div>
-                </div>
-                <a href="/" class="side-list home">
-                    <div class="home-img"><img src="../img/icons/home.svg" alt=""></div>
-                    <div class="tooltip">
-                        <span class="tooltiptext">Trang Chủ</span>
-                    </div>
-                </a>
-                <a href="./member" class="side-list home">
-                    <div class="home-img"><img src="../img/icons/member-card.svg" alt=""></div>
-                    <div class="tooltip">
-                        <span class="tooltiptext">Quản lý thành viên</span>
-                    </div>
-                </a>
-                <a href="./inventory" class="side-list home active-item">
-                    <div class="home-img"><img src="../img/icons/file-management.svg" alt=""></div>
-                    <div class="tooltip">
-                        <span class="tooltiptext">Quản lí kho tài liệu</span>
-                    </div>
-                </a>
-                <a href="./add-new-course" class="side-list home">
-                    <div class="home-img"><img src="../img/icons/add-file.svg" alt=""></div>
-                    <div class="tooltip">
-                        <span class="tooltiptext">Thêm tài liệu mới</span>
-                    </div>
-                </a>
-                <a href="./add-new-document" class="side-list home">
-                    <div class="home-img"><img src="../img/icons/add.svg" alt=""></div>
-                    <div class="tooltip">
-                        <span class="tooltiptext">Thêm văn bản mới</span>
-                    </div>
-                </a>
-                <a href="http://mail.google.com" class="side-list home">
-                    <div class="home-img"><img src="../img/icons/email.svg" alt=""></div>
-                    <div class="tooltip">
-                        <span class="tooltiptext">Hộp thư</span>
-                    </div>
-                </a>
-                <a href="./adv" class="side-list home">
-                    <div class="home-img"><img src="../img/icons/ads.svg" alt=""></div>
-                    <div class="tooltip">
-                        <span class="tooltiptext">Banner quảng cáo</span>
-                    </div>
-                </a>
-                <a href="./feedback" class="side-list home">
-                    <div class="home-img"><img src="../img/icons/rating.svg" alt=""></div>
-                    <div class="tooltip">
-                        <span class="tooltiptext">Cảm nhận khách hàng</span>
-                    </div>
-                </a>
-                <a href="./settings" class="side-list home">
-                    <div class="home-img"><img src="../img/icons/settings.svg" alt=""></div>
-                    <div class="tooltip">
-                        <span class="tooltiptext">Thiết lập website</span>
-                    </div>
-                </a>
-            </div>
-            <div class="side-right">
-                <div class="wrap-form">
-                    <div class="form-sum">
-                        <p class="form-title">Thêm tài liệu mới</p>
-                    </div>
-                    <div class="wrapper-welcome">
-                        
-
-                    </div>
-                </div>
-            </div>
+        <div class="header__features">
+            <a href="/admin/member" class="header__features__item">
+                <img src="/img/icons/user.png" alt="" class="icon">
+                <p class="header__features__name">Member</p>
+            </a>
+            <a href="/admin/inventory" class="header__features__item  active-page">
+                <img src="/img/icons/storage.png" alt="" class="icon">
+                <p class="header__features__name">Inventory</p>
+            </a>
+            <a href="/admin/settings" class="header__features__item">
+                <img src="/img/icons/settings.png" alt="" class="icon">
+                <p class="header__features__name">Settings</p>
+            </a>
+        </div>
+        <div class="header__menu">
+            <img src="/img/icons/menu_2.png" alt="" style="width: 20px; height: 20px;">
         </div>
     </div>
+</header>
+<section>
+    <div class="wrap-body">
+        <div class="wrap-body__left ">
+            <div class="listOfacc wrap2">
+                <div class="listOfacc__title layout wrap3">
+                    <p class="layout__item_h">STT</p>
+                    <p class="layout__item_h">Tên</p>
+                    <p class="layout__item_h">Môn học</p>
+                    <p class="layout__item_h">Lớp</p>
+                    <p class="layout__item_h">Tiêu đề</p>
+                    <p class="layout__item_h">Actions</p>
+                </div>
+                <div class="listOfacc__content">
+                    <%if(listedData){%>
+                        <% let count = 0; %>
+                        <% listedData.forEach((item)=>{%>
+                        <% count++;  %>
+                            <div class="layout wrap3">
+                                <p class="layout__item"><%= count %></p>
+                                <p class="layout__item"><%= item[1].filename%></p>
+                                <p class="layout__item"><%= item[1].subject%></p>
+                                <p class="layout__item"><%= item[1].grade %></p>
+                                <p class="layout__item"><%= item[1].title %></p>
+                                <form class="layout__item">
+                                    <input type="submit" value="Sửa" class="layout__item__btn layout__item__btn--blue">
+                                    <input type="submit" value="Xóa" class="layout__item__btn layout__item__btn--red">
+                                </form>
+                            </div>
+                        <% }) %>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <div class="wrap-body__right wrap2">
+            <div class="formOflist">
+                <form action="POST" class="layout3">
+                    <label class="wrap5">Listed by Grade</label>
+                    <select class="layout4" name="" id="">
+                        <option value="all">All</option>
+                        <option value="user">12</option>
+                        <option value="admin">Other</option>
+                    </select>
+                    <div class="wrap6">
+                        <input class="formButton" type="submit" value="Filter">
+                    </div>
+                </form>
+            </div>
+            <div class="formOfacc">
+                <form action="POST" class="layout3">
+                    <label class="wrap5">Search for Item</label>
+                    <input class="layout4" type="text" placeholder="firstperson@info.com">
+                    <div class="wrap5 wrap6">
+                        <input class="formButton" type="submit" value="Search">
+                    </div>
+                </form>
+            </div>
+            <div class="block-mini">
+                <div class="mini-logo">
+                    <img src="/img/logo.png" alt="" class="mini-logo__corner">
+                    <p>Copyright 2020</p>
+                </div>
+            </div>
 
-    <script type="text/javascript" src="js/main.js"></script>
+        </div>
+
+    </div>
+</section>
 </body>
 </html>
