@@ -4,10 +4,9 @@
     <list default="true" id="c6834e66-25ed-4725-94a5-9e5a6eb8c462" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/authController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/css/member-v2.css" beforeDir="false" afterPath="$PROJECT_DIR$/source/css/member-v2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/css/member-v2.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/source/css/member-v2.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/css/member-v2.scss" beforeDir="false" afterPath="$PROJECT_DIR$/source/css/member-v2.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/members-v2.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/members-v2.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/homeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/homeController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/authentication/register.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/authentication/register.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/indexfinal.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/indexfinal.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +39,24 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -139,7 +155,13 @@
       <workItem from="1590068534823" duration="3295000" />
       <workItem from="1590123489880" duration="2000" />
       <workItem from="1590152334105" duration="4642000" />
-      <workItem from="1590205383281" duration="3200000" />
+      <workItem from="1590205383281" duration="3744000" />
+      <workItem from="1590319021219" duration="4828000" />
+      <workItem from="1590325551963" duration="1557000" />
+      <workItem from="1590411086306" duration="847000" />
+      <workItem from="1590414755288" duration="3056000" />
+      <workItem from="1590497336605" duration="937000" />
+      <workItem from="1590548375435" duration="600000" />
     </task>
     <servers />
   </component>
@@ -159,10 +181,34 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="121" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1590152360720" />
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1590503565639">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1590503565639" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1590503565638">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1590503565638" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1590503565638">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1590503565638" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1590503565639">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1590503565639" />
+    <state x="184" y="9" key="SettingsEditor" timestamp="1590319758814">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1590319758814" />
     <state x="384" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1585212158878">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="384" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1585212158878" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1590416438345">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1590416438345" />
   </component>
   <component name="masterDetails">
     <states>

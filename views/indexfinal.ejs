@@ -19,17 +19,30 @@
                     </a>
                 </div>
                 <div>
-                    <div class="auth">
-                        <div class="auth__login">
-                            <a href="user/login" class="link--format">Đăng nhập</a>
-                        </div>
-                        <div class="abc"></div>
-                        <div class="auth__register">
-                            <a href="user/register" class="link--format">Đăng kí</a>
-                        </div>
-                    </div>
-                </div>
+                    <% if (displayName){ %>
+                            <div>
+                                <div style="color: white">
+                                    Welcome, <%= displayName %>!
+                                </div>
+                                <div>
+                                    <form method="get" action="/user/logout">
+                                        <input type="submit" class="profileLink" value="Đăng xuất">
+                                    </form>
+                                </div>
+                            </div>
+                    <% } else {%>
+                            <div class="auth">
+                                <div class="auth__login">
+                                    <a href="user/login" class="link--format">Đăng nhập</a>
+                                </div>
+                                <div class="abc"></div>
+                                <div class="auth__register">
+                                    <a href="user/register" class="link--format">Đăng kí</a>
+                                </div>
+                            </div>
+                        <% } %>
 
+                </div>
             </div>
             <div class="header__2 wrap">
                 <div class="dropdown">

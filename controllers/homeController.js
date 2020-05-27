@@ -11,7 +11,7 @@ exports.home = async(req, res)=>{
 	const idToken = req.signedCookies.idToken;
 	let listedData;
 	let numPage = req.query.page || 1;
-	let perPage = 8;
+	let perPage = 16;
 
 
 	if(typeof(idToken) != 'undefined' && idToken != false){
@@ -19,7 +19,9 @@ exports.home = async(req, res)=>{
 		  	.then((decodedToken)=> {
 		    	const uid = decodedToken.uid;
 		    	admin.auth().getUser(uid)
-		    		.then((user)=>{		    				
+		    		.then((user)=>{
+
+
 		    			let displayName = user.displayName;
 		    			try{
 							let ref = admin.database().ref(`course/12/Toán`);
@@ -30,10 +32,10 @@ exports.home = async(req, res)=>{
 								listedData = Object.entries(data);
 								let len = Math.ceil(listedData.length / 8);
 
-								listedData.slice(start, end);
+								let pagination = listedData.slice(start, end);
 				    			res.render('indexfinal', {
 				    				displayName: displayName,
-				    				listedData: listedData,
+				    				listedData: pagination,
 									pageLen: len,
 									numPage: numPage
 				  				})
@@ -62,7 +64,7 @@ exports.home = async(req, res)=>{
 			let start = (numPage - 1) * perPage;
 			let end = numPage * perPage;
 			listedData = Object.entries(data);
-			let len = Math.ceil(listedData.length / 8);
+			let len = Math.ceil(listedData.length / 16);
 
 			pagination = listedData.slice(start, end);
 

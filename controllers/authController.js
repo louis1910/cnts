@@ -8,18 +8,13 @@ const shortid = require('shortid');
 exports.userRegister = (req, res)=>{
 	res.render('./authentication/register',{
 		err: "",
-		values: ""
+		values: "",
 	});
 }
 exports.postUserRegister = (req, res)=>{
 
 	const receiveForm = req.body;
 	const randomStr = shortid.generate();
-
-	// const name = receiveForm.name;
-	// const password = receiveForm.password;
-	// const retype = receiveForm.retype;
-	// const usermail = receiveForm.usermail;
 
 	const {
 		name,
@@ -39,6 +34,7 @@ exports.postUserRegister = (req, res)=>{
 
 
 
+
 	admin.auth().createUser({
 		email: usermail,
 		emailVerified: false,
@@ -49,21 +45,42 @@ exports.postUserRegister = (req, res)=>{
 	})
 	.then((userRecord)=>{
 		console.log(userRecord.uid);
-		let uid = userRecord.uid;
 
-		const ref = firebase.database().ref(`member/role`);
+		let userId = userRecord.uid;
+		//
+		// let additionalClaims = {
+		// 	premiumAccount: true,
+		// 	role: 'user'
+		// };
 
-		ref.child(uid).set({
-			role: "user"
+		// admin.auth().createCustomToken(userId, additionalClaims)
+		// 	.then(function(customToken) {
+		// 		console.log(customToken);
+		//
+		// 	})
+		// 	.catch(function(error) {
+		// 		console.log('Error creating custom token:', error);
+		// 	});
+
+		let ref = admin.database().ref("users");
+		let role = ref.child(userId).set({
+			role: 'user'
 		});
 
 		res.redirect('/user/login');
 	})
 	.catch((err)=>{
-		console.log(err);
-		res.redirect('/error');
-		return;
+		console.log(err.code);
+		if(err.code == 'auth/email-already-exists') {
+			res.render('./authentication/register', {
+				err: "Email đã tồn tại, vui lòng chọn email khác!",
+				values: req.body
+			});
+		}
 	});
+
+
+
 }
 
 exports.userLogin = (req, res, next)=>{
@@ -72,7 +89,7 @@ exports.userLogin = (req, res, next)=>{
 	});
 }
 
-exports.postUserLogin = async(req, res)=>{
+exports.postUserLogin = (req, res)=>{
 
 	const { usermail, password } = req.body;
 
@@ -81,6 +98,13 @@ exports.postUserLogin = async(req, res)=>{
 		.then(()=>{
 			 firebase.auth().currentUser.getIdToken(true)
 				.then(function(idToken) {
+
+					admin.auth().verifyIdToken(idToken)
+						.then((decodedToken)=> {
+							const uid = decodedToken.uid;
+							
+						})
+
 					res.cookie('idToken', idToken,{
 						signed: true
 					});
