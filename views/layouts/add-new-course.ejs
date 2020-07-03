@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/layouts.css">
+    <title>Document</title>
+</head>
+<body>
+<header>
+    <div class="header wrap">
+        <div class="header__logo">
+            <h1>Administrator</h1>
+        </div>
+        <div class="header__features">
+            <a href="/admin/member" class="header__features__item">
+                <img src="/img/icons/user.png" alt="" class="icon">
+                <p class="header__features__name">Member</p>
+            </a>
+            <a href="/admin/inventory" class="header__features__item">
+                <img src="/img/icons/storage.png" alt="" class="icon">
+                <p class="header__features__name">Inventory</p>
+            </a>
+        </div>
+        <div class="header__menu">
+            <img src="/img/icons/menu_2.png" alt="" style="width: 20px; height: 20px;">
+        </div>
+    </div>
+</header>
+<section>
+    <div class="wrap-body">
+        <div class="wrap-body__left" style="width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center">
+            <div style="width: 35%; ">
+                <form method="POST" class="layout3" enctype="multipart/form-data">
+                    <label class=""  style="padding-top: .5rem; padding-bottom: .5rem;">Tiêu đề</label>
+                    <input class="layout4" type="text" placeholder="firstperson@info.com" name="title">
+
+                    <label class=""  style="padding-top: .5rem; padding-bottom: .5rem;">Môn học</label>
+                    <input class="layout4" type="text" placeholder="firstperson@info.com" name="subject">
+
+                    <label for="grade" class="" style="padding-top: .5rem; padding-bottom: .5rem;">Lớp</label>
+                    <select name="grade" id="grade" class="layout4">
+                        <option value="1">1</option>
+                        <option value="12">12</option>
+                    </select>
+
+                    <label class="" style="padding-top: .5rem; padding-bottom: .5rem;">Choose your file</label>
+                    <input class="layout4" type="file" name="filename">
+
+                    <label class="" style="padding-top: .5rem; padding-bottom: .5rem;">Mô tả</label>
+                    <input class="layout4" type="text" placeholder="..." name="description">
+                    <div class="wrap5 wrap6">
+                        <input class="formButton" type="submit" value="Upload" style="outline: none; color: black; padding: 5px 10px">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

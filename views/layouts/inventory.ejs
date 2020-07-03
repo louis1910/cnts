@@ -70,12 +70,13 @@
         </div>
         <div class="wrap-body__right wrap2">
             <div class="formOflist">
-                <form action="POST" class="layout3">
-                    <label class="wrap5">Listed by Grade</label>
-                    <select class="layout4" name="" id="">
-                        <option value="all">All</option>
-                        <option value="user">12</option>
-                        <option value="admin">Other</option>
+                <form method="GET" class="layout3" >
+                    <label for="grade" class="wrap5">Listed by Grade</label>
+                    <select class="layout4" name="grade" id="grade">
+                        <option value="12">All</option>
+                        <option value="1">1</option>
+                        <option value="12">12</option>
+                        <option value="other">Other</option>
                     </select>
                     <div class="wrap6">
                         <input class="formButton" type="submit" value="Filter">

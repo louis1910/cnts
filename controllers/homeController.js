@@ -21,7 +21,6 @@ exports.home = async(req, res)=>{
 		    	admin.auth().getUser(uid)
 		    		.then((user)=>{
 
-
 		    			let displayName = user.displayName;
 		    			try{
 							let ref = admin.database().ref(`course/12/Toán`);
@@ -30,14 +29,15 @@ exports.home = async(req, res)=>{
 								let start = (numPage - 1) * perPage;
 								let end = numPage * perPage;
 								listedData = Object.entries(data);
-								let len = Math.ceil(listedData.length / 8);
+								let len = Math.ceil(listedData.length / 16);
 
 								let pagination = listedData.slice(start, end);
 				    			res.render('indexfinal', {
 				    				displayName: displayName,
 				    				listedData: pagination,
 									pageLen: len,
-									numPage: numPage
+									numPage: numPage,
+									isLogin: true
 				  				})
 							}, (err)=>{
 								console.log(err);
@@ -73,7 +73,8 @@ exports.home = async(req, res)=>{
 				displayName: '',
 				listedData: pagination,
 				pageLen: len,
-				numPage: numPage
+				numPage: numPage,
+				isLogin: false
 			});
 		}, (err)=>{
 			console.log(err);

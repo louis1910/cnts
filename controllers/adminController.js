@@ -13,11 +13,11 @@ exports.adminLogin = (req, res)=>{
 }
 
 exports.admin = (req, res) =>{
-	res.render('./layouts/index');
+	res.render('./layouts/admin');
 }
 
 exports.addCourse = (req, res)=>{
-	res.render('layouts/addNewCourse', {
+	res.render('layouts/add-new-course.ejs', {
 		message: ""
 	});
 }
@@ -76,14 +76,13 @@ exports.postCourse = async(req, res)=>{
 		    storage: option.destination,
 		    grade: grade,
 		    subject: subject,
-		    title: title,
 		    description: description,
 		    urlStream: urlStream
 		});
 
 		fs.unlinkSync(pathToUpload);
 
-		res.render("layouts/addNewCourse", {
+		res.render("layouts/add-new-course", {
 			message: "Upload successfully!"
 		})
 	}
@@ -108,7 +107,6 @@ exports.member = async(req, res)=>{
 				      	creationTime: userRecord.metadata.creationTime,
 				      	email: userRecord.email
 			      	}
-			      	console.log(user);
 
 		      		listedUsers.push(user);
 		      	});		      
@@ -116,7 +114,7 @@ exports.member = async(req, res)=>{
 			        // List next batch of users.
 			        listAllUsers(listUsersResult.pageToken);
 			    }
-			    res.render("layouts/members-v2",{
+			    res.render("layouts/members",{
 					listedUsers: listedUsers
 				});
 			})
@@ -130,7 +128,12 @@ exports.member = async(req, res)=>{
 }
 
 exports.inventory = (req, res)=>{
-	let ref = admin.database().ref(`course/12/Toán`);
+	let grade = req.query.grade || 12;
+
+	console.log(grade);
+	let ref = admin.database().ref(`course/${grade}/Toán`);
+
+	console.log(`course/${grade}/Toán`);
 
 	ref.on('value', (snapshot)=>{
 		let data = snapshot.val();

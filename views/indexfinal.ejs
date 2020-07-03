@@ -107,39 +107,74 @@
     <section>
         <div class="show-category wrap__section">
             <div class="categories">
-            <% if (listedData) { %>
-                <% listedData.forEach((value)=>{ %>
+                <% if(isLogin == true){%>
+                    <% if (listedData) { %>
+                        <% listedData.forEach((value)=>{ %>
 
-                <div class="categories__item">
-                    <div class="categories__item--subjects">
-                        <%= value[1].subject %>
-                    </div>
-                    <div class="categories__item--title">
-                        20+ công thức toán học
-                    </div>
-                    <div class="categories__item--image">
-                        <div class="categories__item--image__overlay"></div>
-                        <div class="categories__item--image__tool">
-                            <a href="#" class="item-tool--image">
-                                <img src="/img/icons/download.svg" alt="" class="tool__image">
-                            </a>
-                            <a href="<%= value[1].urlStream %>" target="blank" class="item-tool--image">
-                                <img src="/img/icons/vision.svg" alt="" class="tool__image">
-                            </a>
-                            <a href="#" class="item-tool--image">
-                                <img src="/img/icons/share.svg" alt="" class="tool__image">
-                            </a>
+                        <div class="categories__item">
+                            <div class="categories__item--subjects">
+                                <%= value[1].subject %>
+                            </div>
+                            <div class="categories__item--title">
+                                20+ công thức toán học
+                            </div>
+                            <div class="categories__item--image">
+                                <div class="categories__item--image__overlay"></div>
+                                <div class="categories__item--image__tool">
+                                    <a href="#" class="item-tool--image">
+                                        <img src="/img/icons/download.svg" alt="" class="tool__image">
+                                    </a>
+                                    <a href="<%= value[1].urlStream %>" target="blank" class="item-tool--image">
+                                        <img src="/img/icons/vision.svg" alt="" class="tool__image">
+                                    </a>
+                                    <a href="#" class="item-tool--image">
+                                        <img src="/img/icons/share.svg" alt="" class="tool__image">
+                                    </a>
+                                </div>
+                                <img src="/img/banner/math.jpg" alt="">
+                            </div>
+                            <div class="categories__item--update">
+                                Last update: 27-05-2021
+                            </div>
                         </div>
-                        <img src="/img/banner/math.jpg" alt="">
-                    </div>
-                    <div class="categories__item--update">
-                        Last update: 27-05-2021
-                    </div>
-                </div>
 
-                <% }) %>
-            <% } %>
+                        <% }) %>
+                    <% } %>
+                <% } else {%>
+                        <% if (listedData) { %>
+                            <% listedData.forEach((value)=>{ %>
 
+                                <div class="categories__item">
+                                    <div class="categories__item--subjects">
+                                        <%= value[1].subject %>
+                                    </div>
+                                    <div class="categories__item--title">
+                                        <%= value[1].title %>
+                                    </div>
+                                    <div class="categories__item--image">
+                                        <div class="categories__item--image__overlay"></div>
+                                        <div class="categories__item--image__tool">
+                                            <a href="/user/login" class="item-tool--image">
+                                                <img src="/img/icons/download.svg" alt="" class="tool__image">
+                                            </a>
+                                            <a href="/user/login" target="blank" class="item-tool--image">
+                                                <img src="/img/icons/vision.svg" alt="" class="tool__image">
+                                            </a>
+                                            <a href="/user/login" class="item-tool--image">
+                                                <img src="/img/icons/share.svg" alt="" class="tool__image">
+                                            </a>
+                                        </div>
+                                        <img src="/img/banner/math.jpg" alt="">
+                                    </div>
+                                    <div class="categories__item--update">
+                                        Last update: 27-05-2021
+                                    </div>
+                                </div>
+
+                            <% }) %>
+                        <% } %>
+
+                    <% } %>
             </div>
         </div>
         <div>
