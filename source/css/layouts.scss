@@ -21,16 +21,17 @@ header{
 
 .header{
   display: flex;
-  justify-content: space-between;
   align-items: center;
   height: 70px;
   &__logo{
-
+    width: calc(100% / 3);
   }
   &__features{
     display: flex;
+    justify-content: center;
     box-sizing: border-box;
     height: 100%;
+    width: calc(100% / 3);
     &__item{
       display: flex;
       justify-content: center;
@@ -46,6 +47,11 @@ header{
       font-weight: 400;
       color: white;
     }
+  }
+  &__menu{
+    width: calc(100% / 3);
+    display: flex;
+    justify-content: flex-end;
   }
 }
 

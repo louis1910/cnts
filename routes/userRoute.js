@@ -9,7 +9,8 @@ const {
 } = require('../controllers/authController');
 
 const {
-	isLogin
+	isLogin,
+	adminDisable
 } = require('../middleware/authMiddleware');
 
 

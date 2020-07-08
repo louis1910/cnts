@@ -130,10 +130,10 @@ exports.member = async(req, res)=>{
 exports.inventory = (req, res)=>{
 	let grade = req.query.grade || 12;
 
-	console.log(grade);
+	// console.log(grade);
 	let ref = admin.database().ref(`course/${grade}/Toán`);
 
-	console.log(`course/${grade}/Toán`);
+	// console.log(`course/${grade}/Toán`);
 
 	ref.on('value', (snapshot)=>{
 		let data = snapshot.val();
@@ -142,8 +142,20 @@ exports.inventory = (req, res)=>{
 		res.render('layouts/inventory', {
 			listedData: listedData
 		});
+		console.log(listedData);
 	}, (err)=>{
 		console.log(err);
+	});
+}
+
+exports.delPost = (req, res)=>{
+	let grade = req.body.grade;
+	let subject = req.body.subject;
+
+	const ref = firebase.database().ref(`course/${grade}/${subject}`);
+
+	ref.on("child_removed", function(snapshot) {
+
 	});
 }
 

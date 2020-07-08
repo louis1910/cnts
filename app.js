@@ -11,6 +11,11 @@ const port = 9090;
 const homeController = require('./controllers/homeController');
 const middlewareAuth = require('./middleware/authencation.middleware');
 
+const {
+	isLogin,
+	adminDisable
+} = require('./middleware/authMiddleware');
+
 const userRoute = require('./routes/userRoute');
 const adminRoute = require('./routes/adminRoute');
 
@@ -26,7 +31,10 @@ app.use(cookieParser(random));
 app.use('/user', userRoute);
 app.use('/admin', adminRoute);
 //-------------index
+
+
 app.get('/', homeController.home);
+
 
 app.get('/error',(req, res)=>{
 	res.render('404/404');

@@ -7,7 +7,7 @@ const admin = config.admin();
 const firebase = config.firebase();
 
 
-exports.home = async(req, res)=>{
+exports.home = async(req, res, next)=>{
 	const idToken = req.signedCookies.idToken;
 	let listedData;
 	let numPage = req.query.page || 1;

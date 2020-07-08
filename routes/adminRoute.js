@@ -39,6 +39,7 @@ const {
 	getFile,
     member,
     inventory,
+    delPost,
     addDocument,
     adv,
     feedback,
@@ -51,6 +52,7 @@ router.route('/add-new-course').post(upload.single('filename'),postCourse);
 // router.route('/getfile').get(getFile);
 router.route('/member').get(member);
 router.route('/inventory').get(inventory);
+router.route('/inventory').post(delPost);
 router.route('/add-new-document').get(addDocument);
 router.route('/adv').get(adv);
 router.route('/feedback').get(feedback);

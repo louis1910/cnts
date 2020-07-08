@@ -20,14 +20,18 @@ header {
 
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   height: 70px;
 }
+.header__logo {
+  width: calc(100% / 3);
+}
 .header__features {
   display: flex;
+  justify-content: center;
   box-sizing: border-box;
   height: 100%;
+  width: calc(100% / 3);
 }
 .header__features__item {
   display: flex;
@@ -43,6 +47,11 @@ header {
   font-size: 13px;
   font-weight: 400;
   color: white;
+}
+.header__menu {
+  width: calc(100% / 3);
+  display: flex;
+  justify-content: flex-end;
 }
 
 .active-page {

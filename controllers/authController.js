@@ -117,12 +117,11 @@ exports.postUserLogin = (req, res)=>{
 										signed: true
 									});
 									res.redirect('/');
-								}
-								if(data.role == "admin"){
-									res.cookie('idToken', idToken,{
-										signed: true
-									});
-									res.redirect('/admin');
+								} else if(data.role == "admin"){
+											res.cookie('idToken', idToken,{
+												signed: true
+											});
+											res.redirect('/admin');
 								}
 							})
 						})
