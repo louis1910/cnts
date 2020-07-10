@@ -21,17 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c6834e66-25ed-4725-94a5-9e5a6eb8c462" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/adminController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/adminController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/authController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/homeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/homeController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/authMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/authMiddleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/adminRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/adminRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/userRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/userRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/css/layouts.css" beforeDir="false" afterPath="$PROJECT_DIR$/source/css/layouts.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/css/layouts.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/source/css/layouts.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/css/layouts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/source/css/layouts.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/admin.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/admin.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/add-new-course.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/add-new-course.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/layouts/inventory.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/inventory.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -197,6 +188,7 @@
       <workItem from="1593519714869" duration="2277000" />
       <workItem from="1593763782578" duration="7854000" />
       <workItem from="1594195570796" duration="10934000" />
+      <workItem from="1594283252275" duration="10177000" />
     </task>
     <servers />
   </component>

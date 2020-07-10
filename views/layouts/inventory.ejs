@@ -58,10 +58,11 @@
                                 <p class="layout__item"><%= item[1].subject%></p>
                                 <p class="layout__item"><%= item[1].grade %></p>
                                 <p class="layout__item"><%= item[1].title %></p>
-                                <form class="layout__item" method="post">
+                                <form class="layout__item" method="POST" >
 <!--                                    <input type="submit" value="Sửa" class="layout__item__btn layout__item__btn&#45;&#45;blue">-->
-                                    <input type="hidden" name="grade" value="<%= item[1].grade %>">
-                                    <input type="hidden" name="subject" value="<%= item[1].subject %>">
+                                    <input type="hidden" name="uidToDel" value="<%= item[0] %>">
+                                    <input type="hidden" name="gradeToDel" value="<%= item[1].grade %>">
+                                    <input type="hidden" name="subjectToDel" value="<%= item[1].subject %>">
                                     <input type="submit" value="Xóa" class="layout__item__btn layout__item__btn--red">
                                 </form>
                             </div>

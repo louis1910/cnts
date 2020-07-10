@@ -142,21 +142,28 @@ exports.inventory = (req, res)=>{
 		res.render('layouts/inventory', {
 			listedData: listedData
 		});
-		console.log(listedData);
+
 	}, (err)=>{
 		console.log(err);
 	});
+
 }
 
 exports.delPost = (req, res)=>{
-	let grade = req.body.grade;
-	let subject = req.body.subject;
 
-	const ref = firebase.database().ref(`course/${grade}/${subject}`);
+	let gradeToDel = req.body.gradeToDel;
+	let subjectToDel = req.body.subjectToDel;
+	let uidToDel = req.body.uidToDel;
 
-	ref.on("child_removed", function(snapshot) {
+	console.log(gradeToDel, subjectToDel, uidToDel);
 
-	});
+	console.log(`course/${gradeToDel}/${subjectToDel}/${uidToDel}`);
+
+	let refToDel = admin.database().ref(`course/${gradeToDel}/${subjectToDel}/${uidToDel}`);
+	refToDel.remove();
+
+	res.redirect("/admin/inventory");
+
 }
 
 exports.addDocument = (req, res)=>{
