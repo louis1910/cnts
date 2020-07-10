@@ -55,7 +55,11 @@
                                     <p class="layout__item"><%= user.email%></p>
                                     <p class="layout__item"><%= user.phoneNumber%></p>
                                     <p class="layout__item"><%= user.lastSignInTime%></p>
-                                    <p class="layout__item">Admin</p>
+                                    <% if(user.email == "admin@info.com"){%>
+                                        <p class="layout__item">Admin</p>
+                                    <% } else {%>
+                                        <p class="layout__item">User</p>
+                                    <% } %>
                                     <p class="layout__item">None</p>
                                 </div>
                         <% }) %>
@@ -66,8 +70,8 @@
             <div class="wrap-body__right wrap2">
                 <div class="formOflist">
                     <form action="POST" class="layout3">
-                        <label class="wrap5">List of accounts</label>
-                        <select class="layout4" name="" id="">
+                        <label class="wrap5" for="role">List of accounts</label>
+                        <select class="layout4" name="role" id="role">
                             <option value="all">All</option>
                             <option value="user">User</option>
                             <option value="admin">Admin</option>

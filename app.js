@@ -41,12 +41,5 @@ app.get('/error',(req, res)=>{
 })
 
 
-app.get('/sample', (req, res)=>{
-
-	res.render('sampleUploads');
-})
-
-
-
 
 app.listen(port, ()=>console.log("Server is listening on port: " + port));

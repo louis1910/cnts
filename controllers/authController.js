@@ -5,17 +5,21 @@ const firebase = config.firebase();
 const md5 = require('md5');
 const shortid = require('shortid');
 
+
+//Dùng phương thức res.render('./authentication/register') để xuất trang web chứa html trong tệp register.ejs
 exports.userRegister = (req, res)=>{
 	res.render('./authentication/register',{
 		err: "",
 		values: "",
 	});
 }
+
+
 exports.postUserRegister = (req, res)=>{
 
-	const receiveForm = req.body;
 	const randomStr = shortid.generate();
 
+	//Nhận đầy đủ thông tin từ form bên HTML gửi về
 	const {
 		name,
 		password,
@@ -24,6 +28,7 @@ exports.postUserRegister = (req, res)=>{
 		phone
 	} = req.body;
 
+	//Báo lỗi nếu có trường nào bị trống
 	if(password !== retype || !name || !password || !usermail || !phone){
 		res.render('./authentication/register',{
 			err: ["Vui lòng điền đầy đủ thông tin hoặc thông tin phải hợp lệ!"],
@@ -34,7 +39,7 @@ exports.postUserRegister = (req, res)=>{
 
 
 
-
+	//sử dụng phương thức auth().createUser() của Firebase để tiến hành tạo hồ sơ người dùng với thông tin nhận được từ form
 	admin.auth().createUser({
 		email: usermail,
 		emailVerified: false,
@@ -46,22 +51,9 @@ exports.postUserRegister = (req, res)=>{
 	.then((userRecord)=>{
 		console.log(userRecord.uid);
 
+
+		//Sau khi tạo thành công thì thiết lập quyền người dùng
 		let userId = userRecord.uid;
-		//
-		// let additionalClaims = {
-		// 	premiumAccount: true,
-		// 	role: 'user'
-		// };
-
-		// admin.auth().createCustomToken(userId, additionalClaims)
-		// 	.then(function(customToken) {
-		// 		console.log(customToken);
-		//
-		// 	})
-		// 	.catch(function(error) {
-		// 		console.log('Error creating custom token:', error);
-		// 	});
-
 		let ref = admin.database().ref("users");
 		let role = ref.child(userId).set({
 			role: 'user'
@@ -95,10 +87,15 @@ exports.userLogin = (req, res, next)=>{
 	});
 }
 
+
 exports.postUserLogin = (req, res)=>{
 
 	const { usermail, password } = req.body;
 
+	//Sử dụng phương thức auth().signInWithEmailAndPassword() để xác minh người dùng bằng email và password
+	//họ đã cung cấp khi tạo tài khoản
+	//sau khi xác minh thành công sẽ tiến hành đăng nhập và thiết lập một số cookie cần thiết để duy trì dăng nhập
+	// và xác nhận phân luồng admin và user
 	firebase.auth()
 		.signInWithEmailAndPassword(usermail, md5(password))
 		.then(()=>{
@@ -141,6 +138,7 @@ exports.postUserLogin = (req, res)=>{
 		});
 }
 
+//sử dụng phương thức firebase.auth().signOut() của Firebase để đăng xuất tài khoản đang đăng nhập hiện tại
 
 exports.userLogout = (req, res)=>{
 

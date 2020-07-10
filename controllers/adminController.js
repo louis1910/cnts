@@ -58,6 +58,7 @@ exports.postCourse = async(req, res)=>{
 
 		const fileStream = bucket.file(option.destination);
 		var urlStream = '';
+
 		await fileStream.getSignedUrl({
 				action: 'read',
 				expires: '03-09-2491'
@@ -82,9 +83,7 @@ exports.postCourse = async(req, res)=>{
 
 		fs.unlinkSync(pathToUpload);
 
-		res.render("layouts/add-new-course", {
-			message: "Upload successfully!"
-		})
+		res.redirect("/admin/add-new-course");
 	}
 }
 
@@ -129,13 +128,15 @@ exports.member = async(req, res)=>{
 
 exports.inventory = (req, res)=>{
 	let grade = req.query.grade || 12;
+	let subject = req.query.subject || "Toán"
 
 	// console.log(grade);
-	let ref = admin.database().ref(`course/${grade}/Toán`);
+	let ref = admin.database().ref(`course/${grade}/${subject}`);
 
 	// console.log(`course/${grade}/Toán`);
 
 	ref.on('value', (snapshot)=>{
+
 		let data = snapshot.val();
 		let listedData = Object.entries(data);
 		// console.log(listedData[0][1]);

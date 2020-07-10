@@ -6,7 +6,9 @@ const config = require('./config.js');
 const admin = config.admin();
 const firebase = config.firebase();
 
-
+//Sử dụng admin.auth().verifyIdToken(idToken) để xác minh người dùng hiện tại
+// nếu đúng thì thực hiện giải mã token lấy thông tin người dùng để thực hiện chức năng web
+// nếu không thì điều hướng "Guest" tới trang đăng kí thành viên
 exports.home = async(req, res, next)=>{
 	const idToken = req.signedCookies.idToken;
 	let listedData;
