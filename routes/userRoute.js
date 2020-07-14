@@ -10,7 +10,6 @@ const {
 
 const {
 	isLogin,
-	adminDisable
 } = require('../middleware/authMiddleware');
 
 

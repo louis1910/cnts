@@ -25,6 +25,15 @@ header{
   height: 70px;
   &__logo{
     width: calc(100% / 3);
+    .logo_admin{
+      text-decoration: none;
+      font-size: 30px;
+      font-weight: bold;
+    }
+    .logo_admin:hover{
+      color: #71B7D6;
+      transition: ease-in-out 0.3s;
+    }
   }
   &__features{
     display: flex;
@@ -32,6 +41,10 @@ header{
     box-sizing: border-box;
     height: 100%;
     width: calc(100% / 3);
+    a:hover{
+      background: #368ec8;
+      transition: ease-in-out 0.3s;
+    }
     &__item{
       display: flex;
       justify-content: center;

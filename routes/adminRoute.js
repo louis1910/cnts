@@ -2,6 +2,7 @@ const router = require('express').Router();
 
 const shortid = require("shortid");
 
+
 // let storage = multer.diskStorage({
 // 	destination: function (req, file, cb) {
 // 		cb(null, './uploads')
@@ -31,31 +32,23 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage })
 
 
-
 const {
 	admin,
 	addCourse,
 	postCourse,
-	getFile,
     member,
     inventory,
     delPost,
     addDocument,
-    adv,
-    feedback,
-    settings
 } = require('../controllers/adminController');
 
-router.route('/').get(admin);
+
+router.route(`/`).get(admin);
 router.route('/add-new-course').get(addCourse);
 router.route('/add-new-course').post(upload.single('filename'),postCourse);
-// router.route('/getfile').get(getFile);
 router.route('/member').get(member);
 router.route('/inventory').get(inventory);
 router.route('/inventory').post(delPost);
 router.route('/add-new-document').get(addDocument);
-router.route('/adv').get(adv);
-router.route('/feedback').get(feedback);
-router.route('/settings').get(settings);
 
 module.exports = router;

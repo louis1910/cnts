@@ -29,9 +29,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser(random));
 
 app.use('/user', userRoute);
-app.use('/admin', adminRoute);
+app.use(`/admin`, adminRoute);
 //-------------index
-
 
 app.get('/', homeController.home);
 

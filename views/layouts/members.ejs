@@ -8,13 +8,14 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/layouts.css">
-    <title>Document</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/logov3.png" />
+    <title>Member Management - Cam Nang Tuyen Sinh</title>
 </head>
 <body>
     <header>
         <div class="header wrap">
             <div class="header__logo">
-                <h1>Administrator</h1>
+                <a href="/admin/" class="logo_admin">Administrator</a>
             </div>
             <div class="header__features">
                 <a href="/admin/member" class="header__features__item active-page">
@@ -25,9 +26,9 @@
                     <img src="/img/icons/storage.png" alt="" class="icon">
                     <p class="header__features__name">Inventory</p>
                 </a>
-                <a href="/admin/settings" class="header__features__item">
-                    <img src="/img/icons/settings.png" alt="" class="icon">
-                    <p class="header__features__name">Settings</p>
+                <a href="/admin/add-new-course" class="header__features__item">
+                    <img src="/img/icons/add.png" alt="" class="icon">
+                    <p class="header__features__name">Add course</p>
                 </a>
             </div>
             <div class="header__menu">
@@ -40,6 +41,7 @@
             <div class="wrap-body__left ">
                 <div class="listOfacc wrap2">
                     <div class="listOfacc__title layout wrap3">
+                        <p class="layout__item_h">ID</p>
                         <p class="layout__item_h">Name</p>
                         <p class="layout__item_h">Email</p>
                         <p class="layout__item_h">Phone</p>
@@ -49,8 +51,11 @@
                     </div>
                     <div class="listOfacc__content">
                     <%if(listedUsers){%>
-                        <% listedUsers.forEach((user)=>{%>
+                            <% let count = 0; %>
+                            <% listedUsers.forEach((user)=>{%>
+                            <% count++;  %>
                                 <div class="layout wrap3">
+                                    <p class="layout__item"><%= count %></p>
                                     <p class="layout__item"><%= user.displayName%></p>
                                     <p class="layout__item"><%= user.email%></p>
                                     <p class="layout__item"><%= user.phoneNumber%></p>
@@ -81,15 +86,15 @@
                         </div>
                     </form>
                 </div>
-                <div class="formOfacc">
-                    <form action="POST" class="layout3">
-                        <label class="wrap5">Search for account</label>
-                        <input class="layout4" type="text" placeholder="firstperson@info.com">
-                        <div class="wrap5 wrap6">
-                            <input class="formButton" type="submit" value="Search">
-                        </div>
-                    </form>
-                </div>
+<!--                <div class="formOfacc">-->
+<!--                    <form action="POST" class="layout3">-->
+<!--                        <label class="wrap5">Search for account</label>-->
+<!--                        <input class="layout4" type="text" placeholder="firstperson@info.com">-->
+<!--                        <div class="wrap5 wrap6">-->
+<!--                            <input class="formButton" type="submit" value="Search">-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </div>-->
                 <div class="block-mini">
                     <div class="mini-logo">
                         <img src="/img/logo.png" alt="" class="mini-logo__corner">
@@ -97,7 +102,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 </body>

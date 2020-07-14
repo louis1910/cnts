@@ -26,12 +26,25 @@ header {
 .header__logo {
   width: calc(100% / 3);
 }
+.header__logo .logo_admin {
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: bold;
+}
+.header__logo .logo_admin:hover {
+  color: #71B7D6;
+  transition: ease-in-out 0.3s;
+}
 .header__features {
   display: flex;
   justify-content: center;
   box-sizing: border-box;
   height: 100%;
   width: calc(100% / 3);
+}
+.header__features a:hover {
+  background: #368ec8;
+  transition: ease-in-out 0.3s;
 }
 .header__features__item {
   display: flex;

@@ -8,13 +8,14 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/layouts.css">
-    <title>Document</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/logov3.png" />
+    <title>Admin - Cam Nang Tuyen Sinh</title>
 </head>
 <body>
 <header>
     <div class="header wrap">
         <div class="header__logo">
-            <h1>Administrator</h1>
+            <a href="/admin/" class="logo_admin">Administrator</a>
         </div>
         <div class="header__features">
             <a href="/admin/member" class="header__features__item">
@@ -24,6 +25,10 @@
             <a href="/admin/inventory" class="header__features__item">
                 <img src="/img/icons/storage.png" alt="" class="icon">
                 <p class="header__features__name">Inventory</p>
+            </a>
+            <a href="/admin/add-new-course" class="header__features__item active-page">
+                <img src="/img/icons/add.png" alt="" class="icon">
+                <p class="header__features__name">Add course</p>
             </a>
         </div>
         <div class="header__menu">
@@ -36,16 +41,16 @@
         <div class="wrap-body__left" style="width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center">
             <div style="width: 35%; ">
                 <form method="POST" class="layout3" enctype="multipart/form-data">
-                    <label class=""  style="padding-top: .5rem; padding-bottom: .5rem;">Tiêu đề</label>
-                    <input class="layout4" type="text" placeholder="firstperson@info.com" name="title">
+                    <label for="title"  style="padding-top: .5rem; padding-bottom: .5rem;">Title</label>
+                    <input class="layout4" type="text" placeholder="Add title" name="title" id="title">
 
-                    <label class=""  style="padding-top: .5rem; padding-bottom: .5rem;">Môn học</label>
+                    <label for="subject"  style="padding-top: .5rem; padding-bottom: .5rem;">Subject</label>
                     <select name="subject" id="subject" class="layout4">
                         <option value="Toán">Toán</option>
                         <option value="Văn">Ngữ Văn</option>
                     </select>
 
-                    <label for="grade" class="" style="padding-top: .5rem; padding-bottom: .5rem;">Lớp</label>
+                    <label for="grade" class="" style="padding-top: .5rem; padding-bottom: .5rem;">Grade</label>
                     <select name="grade" id="grade" class="layout4">
                         <option value="1">1</option>
                         <option value="12">12</option>
@@ -54,7 +59,7 @@
                     <label class="" style="padding-top: .5rem; padding-bottom: .5rem;">Choose your file</label>
                     <input class="layout4" type="file" name="filename">
 
-                    <label class="" style="padding-top: .5rem; padding-bottom: .5rem;">Mô tả</label>
+                    <label class="" style="padding-top: .5rem; padding-bottom: .5rem;">Description</label>
                     <input class="layout4" type="text" placeholder="..." name="description">
                     <div class="wrap5 wrap6">
                         <input class="formButton" type="submit" value="Upload" style="outline: none; color: black; padding: 5px 10px">

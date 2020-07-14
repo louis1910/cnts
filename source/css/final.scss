@@ -28,6 +28,22 @@ a{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    &__block_logout{
+      position: relative;
+      cursor: pointer;
+      &_btn_logout{
+        position: absolute;
+        opacity: 0;
+        visibility: hidden;
+        left: 50%;
+        transform: translate(-50%, 0);
+        cursor: pointer;
+      }
+      &:hover &_btn_logout{
+          opacity: 1;
+          visibility: visible;
+      }
+    }
   }
   &__2{
     box-sizing: border-box;
@@ -153,7 +169,7 @@ a{
   &__text{
     @include flex-all-center;
     width: 100%;
-    background: black;
+    background: #02C39A;
     color: white;
     border-radius: 5px;
   }
@@ -243,6 +259,7 @@ a{
   width: 100%;
   display: flex;
   justify-content: center;
+  color: white;
   &__child{
     width: 50%;
     @include flex-all-center;

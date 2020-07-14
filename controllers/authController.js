@@ -115,12 +115,19 @@ exports.postUserLogin = (req, res)=>{
 									});
 									res.redirect('/');
 								} else if(data.role == "admin"){
-											res.cookie('idToken', idToken,{
-												signed: true
-											});
-											res.redirect('/admin');
+									res.cookie('MK3S2', "isAdmin", {
+										signed: true
+									});
+
+									res.cookie('idToken', idToken,{
+										signed: true
+									});
+									res.redirect('/admin');
 								}
 							})
+						})
+						.catch(function (err) {
+							res.redirect("/error");
 						})
 
 				})
@@ -128,6 +135,7 @@ exports.postUserLogin = (req, res)=>{
 					console.log(err);
 				 	res.redirect('/error');
 			});
+
 		})
 		.catch((err)=>{
 			const errors = err.message;
@@ -150,3 +158,4 @@ exports.userLogout = (req, res)=>{
 		res.redirect('/error');
 	});
 }
+

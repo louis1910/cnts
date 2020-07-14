@@ -7,19 +7,26 @@ const shortid = require("shortid");
 const fs = require("fs");
 
 
-
-exports.adminLogin = (req, res)=>{
-
-}
-
 exports.admin = (req, res) =>{
-	res.render('./layouts/admin');
+	const isAdmin = req.signedCookies.MK3S2;
+	if(isAdmin){
+		res.render('./layouts/admin');
+	} else {
+		res.redirect('/error')
+	}
+
 }
 
 exports.addCourse = (req, res)=>{
-	res.render('layouts/add-new-course.ejs', {
-		message: ""
-	});
+	const isAdmin = req.signedCookies.MK3S2;
+	if(isAdmin){
+		res.render('layouts/add-new-course.ejs', {
+			message: ""
+		});
+	} else {
+		res.redirect('/error')
+	}
+
 }
 
 exports.postCourse = async(req, res)=>{
@@ -87,66 +94,76 @@ exports.postCourse = async(req, res)=>{
 	}
 }
 
-exports.getCourse = (req, res)=>{
-	const ref = firebase.database().ref(`course/8/math/`);
-}
 
 exports.member = async(req, res)=>{
-  	let listedUsers = [];
+	const isAdmin = req.signedCookies.MK3S2;
+	if(isAdmin){
+		let listedUsers = [];
+		listAllUsers = async(nextPageToken) => {
+			// List batch of users, 1000 at a time.
+			admin.auth().listUsers(1000, nextPageToken)
+				.then(function(listUsersResult) {
+					listUsersResult.users.forEach((userRecord)=>{
+						let user = {
+							displayName: userRecord.displayName,
+							phoneNumber: userRecord.phoneNumber,
+							lastSignInTime: userRecord.metadata.lastSignInTime,
+							creationTime: userRecord.metadata.creationTime,
+							email: userRecord.email
+						}
 
-	listAllUsers = async(nextPageToken) => {
-  // List batch of users, 1000 at a time.
-	  	admin.auth().listUsers(1000, nextPageToken)
-	    	.then(function(listUsersResult) {
-		    	listUsersResult.users.forEach((userRecord)=>{
-			      	let user = {
-			      		displayName: userRecord.displayName,
-				      	phoneNumber: userRecord.phoneNumber,
-				      	lastSignInTime: userRecord.metadata.lastSignInTime,
-				      	creationTime: userRecord.metadata.creationTime,
-				      	email: userRecord.email
-			      	}
-
-		      		listedUsers.push(user);
-		      	});		      
-			    if (listUsersResult.pageToken) {
-			        // List next batch of users.
-			        listAllUsers(listUsersResult.pageToken);
-			    }
-			    res.render("layouts/members",{
-					listedUsers: listedUsers
+						listedUsers.push(user);
+					});
+					if (listUsersResult.pageToken) {
+						// List next batch of users.
+						listAllUsers(listUsersResult.pageToken);
+					}
+					res.render("layouts/members",{
+						listedUsers: listedUsers
+					});
+				})
+				.catch(function(error) {
+					console.log('Error listing users:', error);
+					res.redirect('/error');
 				});
-			})
-		    .catch(function(error) {
-		      console.log('Error listing users:', error);
-		      res.redirect('/error');
-		    });
-	}
+		}
 // Start listing users from the beginning, 1000 at a time.
-	listAllUsers();
+		listAllUsers();
+	} else {
+		res.redirect('/error')
+	}
+
+
+
 }
 
 exports.inventory = (req, res)=>{
-	let grade = req.query.grade || 12;
-	let subject = req.query.subject || "Toán"
 
-	// console.log(grade);
-	let ref = admin.database().ref(`course/${grade}/${subject}`);
+	const isAdmin = req.signedCookies.MK3S2;
+	if(isAdmin){
+		let grade = req.query.grade || 12;
+		let subject = req.query.subject || "Toán"
 
-	// console.log(`course/${grade}/Toán`);
+		// console.log(grade);
+		let ref = admin.database().ref(`course/${grade}/${subject}`);
 
-	ref.on('value', (snapshot)=>{
+		// console.log(`course/${grade}/Toán`);
 
-		let data = snapshot.val();
-		let listedData = Object.entries(data);
-		// console.log(listedData[0][1]);
-		res.render('layouts/inventory', {
-			listedData: listedData
+		ref.on('value', (snapshot)=>{
+
+			let data = snapshot.val();
+			let listedData = Object.entries(data);
+			// console.log(listedData[0][1]);
+			res.render('layouts/inventory', {
+				listedData: listedData
+			});
+
+		}, (err)=>{
+			console.log(err);
 		});
-
-	}, (err)=>{
-		console.log(err);
-	});
+	} else {
+		res.redirect('/error')
+	}
 
 }
 
@@ -168,17 +185,11 @@ exports.delPost = (req, res)=>{
 }
 
 exports.addDocument = (req, res)=>{
-	res.render("layouts/add-new-document");
-}
+	const isAdmin = req.signedCookies.MK3S2;
+	if(isAdmin){
+		res.render("layouts/add-new-document");
+	} else {
+		res.redirect('/error')
+	}
 
-exports.adv = (req, res)=>{
-	res.render("layouts/adv")
-}
-
-exports.feedback = (req, res)=>{
-	res.render("layouts/feedback")
-}
-
-exports.settings = (req,res)=>{
-	res.render("layouts/settings")
 }

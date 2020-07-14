@@ -29,6 +29,22 @@ a {
   justify-content: space-between;
   align-items: center;
 }
+.header__1__block_logout {
+  position: relative;
+  cursor: pointer;
+}
+.header__1__block_logout_btn_logout {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  left: 50%;
+  transform: translate(-50%, 0);
+  cursor: pointer;
+}
+.header__1__block_logout:hover .header__1__block_logout_btn_logout {
+  opacity: 1;
+  visibility: visible;
+}
 .header__2 {
   box-sizing: border-box;
   width: 100%;
@@ -143,7 +159,7 @@ a {
   align-items: center;
   justify-content: center;
   width: 100%;
-  background: black;
+  background: #02C39A;
   color: white;
   border-radius: 5px;
 }
@@ -226,6 +242,7 @@ a {
   width: 100%;
   display: flex;
   justify-content: center;
+  color: white;
 }
 .pagingNumber__child {
   width: 50%;
