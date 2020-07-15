@@ -113,7 +113,7 @@ exports.postUserLogin = (req, res)=>{
 									res.cookie('idToken', idToken,{
 										signed: true
 									});
-									res.redirect('/');
+									return res.redirect('/');
 								} else if(data.role == "admin"){
 									res.cookie('MK3S2', "isAdmin", {
 										signed: true
@@ -122,7 +122,7 @@ exports.postUserLogin = (req, res)=>{
 									res.cookie('idToken', idToken,{
 										signed: true
 									});
-									res.redirect('/admin');
+									return res.redirect('/admin');
 								}
 							})
 						})

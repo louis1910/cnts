@@ -12,19 +12,20 @@ exports.admin = (req, res) =>{
 	if(isAdmin){
 		res.render('./layouts/admin');
 	} else {
-		res.redirect('/error')
+		res.redirect('/unavailable')
 	}
 
 }
 
 exports.addCourse = (req, res)=>{
+
 	const isAdmin = req.signedCookies.MK3S2;
 	if(isAdmin){
 		res.render('layouts/add-new-course.ejs', {
 			message: ""
 		});
 	} else {
-		res.redirect('/error')
+		res.redirect('/unavailable')
 	}
 
 }
@@ -41,11 +42,10 @@ exports.postCourse = async(req, res)=>{
 	} = req.body;
 
 	if(subject == "none" || grade == "none")
-	{	
-		res.render('layouts/addNewCourse', {
+	{
+		return res.render('layouts/addNewCourse', {
 			message: ""
 		});
-		return;
 	}
 	else{
 
@@ -59,7 +59,7 @@ exports.postCourse = async(req, res)=>{
 		}
 
 		await bucket.upload(pathToUpload, option, (err, file)=>{
-			if(err) res.redirect('/error');
+			if(err) console.log(err);
 		});
 
 
@@ -73,7 +73,7 @@ exports.postCourse = async(req, res)=>{
 				urlStream = signedUrls[0];
 		});
 
-		const ref = firebase.database().ref(`course/${grade}/${subject}`);
+		const ref = admin.database().ref(`course/${grade}/${subject}`);
 
 		let atDate = new Date().toString().slice(0, 24);
 
@@ -89,9 +89,9 @@ exports.postCourse = async(req, res)=>{
 		});
 
 		fs.unlinkSync(pathToUpload);
-
-		res.redirect("/admin/add-new-course");
 	}
+
+	return res.render('success');
 }
 
 
@@ -130,7 +130,7 @@ exports.member = async(req, res)=>{
 // Start listing users from the beginning, 1000 at a time.
 		listAllUsers();
 	} else {
-		res.redirect('/error')
+		res.redirect('/unavailable')
 	}
 
 
@@ -162,7 +162,7 @@ exports.inventory = (req, res)=>{
 			console.log(err);
 		});
 	} else {
-		res.redirect('/error')
+		res.redirect('/unavailable');
 	}
 
 }
@@ -180,7 +180,7 @@ exports.delPost = (req, res)=>{
 	let refToDel = admin.database().ref(`course/${gradeToDel}/${subjectToDel}/${uidToDel}`);
 	refToDel.remove();
 
-	res.redirect("/admin/inventory");
+	return res.render('success2');
 
 }
 
@@ -189,7 +189,7 @@ exports.addDocument = (req, res)=>{
 	if(isAdmin){
 		res.render("layouts/add-new-document");
 	} else {
-		res.redirect('/error')
+		res.redirect('/unavailable')
 	}
 
 }

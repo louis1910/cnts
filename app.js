@@ -39,6 +39,17 @@ app.get('/error',(req, res)=>{
 	res.render('404/404');
 })
 
+app.get('/success',(req, res)=>{
+	res.render('success');
+})
+app.get('/success2',(req, res)=>{
+	res.render('success2');
+})
+
+app.get('/unavailable',(req, res)=>{
+	res.render('404/unavailable');
+})
+
 
 
 app.listen(port, ()=>console.log("Server is listening on port: " + port));

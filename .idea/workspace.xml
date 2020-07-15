@@ -20,32 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c6834e66-25ed-4725-94a5-9e5a6eb8c462" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/views/404/unavailable.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/success.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/success2.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/adminController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/adminController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/authController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/homeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/homeController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/authMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/authMiddleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/adminRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/adminRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/userRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/userRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/css/final.css" beforeDir="false" afterPath="$PROJECT_DIR$/source/css/final.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/css/final.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/source/css/final.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/css/final.scss" beforeDir="false" afterPath="$PROJECT_DIR$/source/css/final.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/css/layouts.css" beforeDir="false" afterPath="$PROJECT_DIR$/source/css/layouts.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/css/layouts.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/source/css/layouts.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/css/layouts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/source/css/layouts.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/404/404.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/404/404.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/authentication/login.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/authentication/login.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/authentication/register.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/authentication/register.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/indexfinal.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/add-new-course.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/add-new-course.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/admin.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/admin.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/adv.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/feedback.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/inventory.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/inventory.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/members.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/members.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/settings.ejs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +192,8 @@
       <workItem from="1593763782578" duration="7854000" />
       <workItem from="1594195570796" duration="10934000" />
       <workItem from="1594283252275" duration="10177000" />
-      <workItem from="1594743800263" duration="5579000" />
+      <workItem from="1594743800263" duration="6046000" />
+      <workItem from="1594793784919" duration="3951000" />
     </task>
     <servers />
   </component>
